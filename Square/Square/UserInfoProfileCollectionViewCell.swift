@@ -23,13 +23,18 @@ class UserInfoProfileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var followingLabel: UILabel!
     
+    @IBOutlet weak var userBackgroundImageView: UIImageView!
     func loadData(userName:String,title:String,info:String,subscribe:String,follower:String,following:String){
         self.userNameLabel.text = userName
         self.titleLabel.text = title
-        self.infoLabel.text = info
+        self.infoLabel.text = " "+info
         self.subscribeLabel.text = subscribe
         self.followerLabel.text = follower
         self.followingLabel.text = following
+    }
+    
+    func loadBackgroundImage(image:UIImage){
+        self.userBackgroundImageView.image = image
     }
     
     func loadImage(image:UIImage){

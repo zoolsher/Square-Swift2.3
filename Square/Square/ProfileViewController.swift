@@ -34,7 +34,9 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             "info":"I came from Amercian",
             "subscribe":"100",
             "follower":"10",
-            "following":"100"
+            "following":"100",
+            "background":"http://d.haotu5.com/ga/images4/94/11/94115b4c6d8b53d1d888c44aa8bbf7d84da04fe4.jpg",
+            "avator":"http://p3.wmpic.me/article/2015/03/18/1426649933_mafqzZLi.jpeg"
         ]
         let testImage = "https://raw.githubusercontent.com/vsouza/awesome-ios/master/awesome_logo.png"
         self.workData = [
@@ -129,6 +131,12 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     func renderUserInfoCell(indexPath:NSIndexPath)->UICollectionViewCell{
         let userinfoCell = collectionView.dequeueReusableCellWithReuseIdentifier(userinfoReuse, forIndexPath: indexPath) as? UserInfoProfileCollectionViewCell
         userinfoCell?.loadData(userInfo["username"] ?? "", title: userInfo["title"] ?? "", info: userInfo["info"] ?? "", subscribe: userInfo["subscribe"] ?? "", follower: userInfo["follower"] ?? "", following: userInfo["following"] ?? "")
+        fetchImage(NSURL(string:userInfo["avator"]!)!, res: { (image) in
+            userinfoCell?.loadImage(image)
+        })
+        fetchImage(NSURL(string:userInfo["background"]!)!) { (image) in
+            userinfoCell?.loadBackgroundImage(image)
+        }
         return userinfoCell!
     }
     
@@ -155,11 +163,11 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
                 fallthrough
             case 1:
                 let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
-                retView?.loadData("Wrok(\(workData.count))")
+                retView?.loadData(" Work(\(workData.count))")
                 return retView!
             default:
                 let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
-                retView?.loadData("Wrok(\(workData.count))")
+                retView?.loadData(" Work(\(workData.count))")
                 return retView!
             }
     }
@@ -177,6 +185,9 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         case 0:
             return CGSize(width: self.view.frame.width ,height: 164);
         case 1:
+            if indexPath.row == 1{
+                return CGSize(width: (self.view.frame.width/2)-4,height:150)
+            }
             return CGSize(width: (self.view.frame.width/2)-4,height:100)
         default:
             return CGSize.zero
@@ -215,6 +226,10 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.scrollViewDidScroll(UIScrollView())
     }
     
     func fetchImage(url:NSURL,res:(UIImage)->Void){
