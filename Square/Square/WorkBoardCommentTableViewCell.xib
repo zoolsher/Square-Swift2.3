@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A270f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DINCOND-REGULAR.OTF">
+            <string>DINCond-Regular</string>
+            <string>DINCond-Regular</string>
+            <string>DINCond-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="_workBoardCommentCell" rowHeight="210" id="KGk-i7-Jjw" customClass="WorkBoardCommentTableViewCell" customModule="Square" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="449" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="449" height="209"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKn-pn-SlB">
+                        <rect key="frame" x="66" y="8" width="367" height="20"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFi-Hc-EoX">
+                        <rect key="frame" x="66" y="36" width="367" height="20"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-IO-HTk">
+                        <rect key="frame" x="8" y="66" width="433" height="127"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square-icon" translatesAutoresizingMaskIntoConstraints="NO" id="a23-7H-j6R">
+                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="YIA-7S-FLX"/>
+                            <constraint firstAttribute="width" secondItem="a23-7H-j6R" secondAttribute="height" id="yVn-ow-ogG"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="uFi-Hc-EoX" secondAttribute="trailing" constant="8" id="1Rh-d7-e95"/>
+                    <constraint firstItem="a23-7H-j6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="AF3-Vl-IDr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3eE-IO-HTk" secondAttribute="trailing" id="FoR-Gj-bci"/>
+                    <constraint firstItem="uFi-Hc-EoX" firstAttribute="top" secondItem="pKn-pn-SlB" secondAttribute="bottom" constant="8" id="G7Y-f8-JCK"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="3eE-IO-HTk" secondAttribute="leading" id="T3T-57-yFd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3eE-IO-HTk" secondAttribute="bottom" constant="8" id="VGy-g5-ld5"/>
+                    <constraint firstAttribute="topMargin" secondItem="pKn-pn-SlB" secondAttribute="top" id="WeL-vT-sp5"/>
+                    <constraint firstItem="pKn-pn-SlB" firstAttribute="leading" secondItem="a23-7H-j6R" secondAttribute="trailing" constant="8" id="aqm-4R-Vhu"/>
+                    <constraint firstItem="3eE-IO-HTk" firstAttribute="top" secondItem="a23-7H-j6R" secondAttribute="bottom" constant="8" id="fqC-se-Elz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pKn-pn-SlB" secondAttribute="trailing" constant="8" id="sBw-fO-KHI"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="a23-7H-j6R" secondAttribute="leading" id="uIu-ZB-5hq"/>
+                    <constraint firstItem="uFi-Hc-EoX" firstAttribute="leading" secondItem="a23-7H-j6R" secondAttribute="trailing" constant="8" id="yaO-3P-or9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avator" destination="a23-7H-j6R" id="k5h-AI-y0p"/>
+                <outlet property="commentContentTextView" destination="3eE-IO-HTk" id="h6C-eA-C7Q"/>
+                <outlet property="userNameLabel" destination="pKn-pn-SlB" id="4dc-IV-xGa"/>
+                <outlet property="userTitleLabel" destination="uFi-Hc-EoX" id="PLV-F5-TDV"/>
+            </connections>
+            <point key="canvasLocation" x="437.5" y="342"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="square-icon" width="46" height="46"/>
+    </resources>
+</document>

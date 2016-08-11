@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A270f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DINCOND-REGULAR.OTF">
+            <string>DINCond-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderProfileCollectionReusableView" customModule="Square" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="_headerProfileCollectionReuseView" id="U6b-Vx-4bR" customClass="HeaderProfileCollectionReusableView" customModule="Square" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-ri-x0T">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="BaY-ri-x0T" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="1rT-5U-fFJ"/>
+                <constraint firstItem="BaY-ri-x0T" firstAttribute="width" secondItem="U6b-Vx-4bR" secondAttribute="width" id="39Z-qj-W0M"/>
+                <constraint firstItem="BaY-ri-x0T" firstAttribute="height" secondItem="U6b-Vx-4bR" secondAttribute="height" id="BeV-p7-7N8"/>
+                <constraint firstItem="BaY-ri-x0T" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="sVZ-AG-n35"/>
+            </constraints>
+            <connections>
+                <outlet property="textLabel" destination="BaY-ri-x0T" id="zr5-mP-Epu"/>
+            </connections>
+            <point key="canvasLocation" x="236.5" y="166"/>
+        </collectionReusableView>
+    </objects>
+</document>
