@@ -126,10 +126,10 @@ class HomeViewController: UIViewController,UITabBarDelegate {
         for index in 0..<arr.count{
             let workView = WorksOnHomeView(frame: CGRect(x:frame.size.width*CGFloat(index),y:0,width:frame.size.width,height:frame.size.height))
             workView.loadData(arr[index]["title"]!, postedBy: arr[index]["postedBy"]!)
-            fetchImage(NSURL(string:arr[index]["image"]!)!, res: { (img) in
-                print("fetched data")
-                workView.loadImg(img)
-            })
+            workView.imageView.af_setImageWithURL(NSURL(string:arr[index]["image"]!)!)
+//            fetchImage(NSURL(string:arr[index]["image"]!)!, res: { (img) in
+//                workView.loadImg(img)
+//            })
             scrollView.addSubview(workView)
         }
         
@@ -157,10 +157,7 @@ class HomeViewController: UIViewController,UITabBarDelegate {
                 self.performSegueWithIdentifier("GoToCollection", sender: nil)
 //                self.performSegue(withIdentifier: "GoToCollection", sender: nil)
             }
-            fetchImage(NSURL(string:arr[index]["image"]!)!, res: { (img) in
-                print("fetched data")
-                workView.loadImg(img)
-            })
+            workView.imageView.af_setImageWithURL(NSURL(string:arr[index]["image"]!)!)
             scrollView.addSubview(workView)
         }
         
@@ -247,11 +244,9 @@ class HomeViewController: UIViewController,UITabBarDelegate {
         imageView1.addGestureRecognizer(tapGR1)
         imageView2.addGestureRecognizer(tapGR2)
         imageView3.addGestureRecognizer(tapGR3)
-        fetchImage (NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!){ (img) in
-            self.imageView1.image = img;
-            self.imageView2.image = img;
-            self.imageView3.image = img;
-        }
+        self.imageView1.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
+        self.imageView2.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
+        self.imageView3.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
     }
     
     func imageTapHandler(sender:UITapGestureRecognizer){

@@ -169,9 +169,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         let stackCell = collectionView.dequeueReusableCellWithReuseIdentifier(stackReuse, forIndexPath: indexPath) as! StackProfileCollectionViewCell
         let data = subscribeData[indexPath.row]
         stackCell.loadData(data["title"]!)
-        fetchImage(NSURL(string:data["image"]!)!) { (image) in
-            stackCell.loadImage(image)
-        }
+        stackCell.stackImageView.af_setImageWithURL(NSURL(string:data["image"]!)!)
         return stackCell
     }
     
@@ -179,9 +177,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         let stackCell = collectionView.dequeueReusableCellWithReuseIdentifier(stackReuse, forIndexPath: indexPath) as! StackProfileCollectionViewCell
         let data = stackData[indexPath.row]
         stackCell.loadData(data["title"]!)
-        fetchImage(NSURL(string:data["image"]!)!) { (image) in
-            stackCell.loadImage(image)
-        }
+        stackCell.stackImageView.af_setImageWithURL(NSURL(string:data["image"]!)!)
         return stackCell
     }
     
@@ -189,21 +185,15 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         let workCell = collectionView.dequeueReusableCellWithReuseIdentifier(workReuse, forIndexPath: indexPath) as! WorkProfileCollectionViewCell
         let data = workData[indexPath.row]
         workCell.loadData(data["heart"]!, comment: data["comment"]!)
-        fetchImage(NSURL(string:data["image"]!)!) { (image) in
-            workCell.loadImage(image)
-        }
+        workCell.workImageView.af_setImageWithURL(NSURL(string:data["image"]!)!)
         return workCell
     }
     
     func renderUserInfoCell(indexPath:NSIndexPath)->UICollectionViewCell{
         let userinfoCell = collectionView.dequeueReusableCellWithReuseIdentifier(userinfoReuse, forIndexPath: indexPath) as? UserInfoProfileCollectionViewCell
         userinfoCell?.loadData(userInfo["username"] ?? "", title: userInfo["title"] ?? "", info: userInfo["info"] ?? "", subscribe: userInfo["subscribe"] ?? "", follower: userInfo["follower"] ?? "", following: userInfo["following"] ?? "")
-        fetchImage(NSURL(string:userInfo["avator"]!)!, res: { (image) in
-            userinfoCell?.loadImage(image)
-        })
-        fetchImage(NSURL(string:userInfo["background"]!)!) { (image) in
-            userinfoCell?.loadBackgroundImage(image)
-        }
+        userinfoCell?.userBackgroundImageView.af_setImageWithURL(NSURL(string:userInfo["background"]!)!)
+        userinfoCell?.avator.af_setImageWithURL(NSURL(string:userInfo["avator"]!)!)
         return userinfoCell!
     }
     

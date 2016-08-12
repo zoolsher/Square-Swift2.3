@@ -523,7 +523,7 @@
         <!--画板-->
         <scene sceneID="9KU-Tg-JUb">
             <objects>
-                <viewController storyboardIdentifier="WorkBoard" title="画板" id="uCX-tc-8oQ" customClass="WorkBoardViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkBoard" title="画板" automaticallyAdjustsScrollViewInsets="NO" id="uCX-tc-8oQ" customClass="WorkBoardViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EFR-9h-v8J"/>
                         <viewControllerLayoutGuide type="bottom" id="7Ql-V1-HdI"/>

@@ -9,12 +9,12 @@
 import UIKit
 import Alamofire
 import NVActivityIndicatorView
+import SDWebImage
 
 
 class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDelegate,NVActivityIndicatorViewable {
 
     @IBOutlet weak var placeImageScrollView: UIScrollView!
-    
     
     @IBOutlet weak var tabbar: UITabBar!
     
@@ -34,13 +34,18 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     
     private var imageArr:[String:UIImage] = [String:UIImage]()
     
+    var imageInScrollView : UIImageView? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageInScrollView = UIImageView()
+        self.placeImageScrollView.addSubview(imageInScrollView!)
+        initRightButton()
         self.placeImageScrollView.delegate = self
         self.tabbar.delegate = self;
         loadingImages()
         
-        initRightButton()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -71,7 +76,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     }
 
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return scrollView.subviews[0]
+        return imageInScrollView
     }
     
     func showLastPic(_:AnyObject?){
@@ -97,6 +102,20 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         
         self.activityStart()
         
+        let manager = SDWebImageManager.sharedManager()
+        
+        for i in 0..<self.dataArr.count{
+            manager.downloadImageWithURL(NSURL(string:dataArr[i]["image"]!)!, options: SDWebImageOptions.RetryFailed, progress: { (_, _) in
+                
+                }, completed: { (image, err, cacheType, finished, imageURL) in
+                    let url = imageURL.absoluteString
+                    self.imageArr[url] = image
+                    if(self.imageArr.count >= self.dataArr.count){
+                        self.activityEnd()
+                        self.curShowingImage = 0
+                    }
+            })
+        }
         for i in 0..<self.dataArr.count{
             fetchImage(NSURL(string:dataArr[i]["image"]!)!, res: { (image) in
                 self.imageArr[self.dataArr[i]["image"]!] = image
@@ -124,21 +143,23 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     }
     
     func showImage(index:Int){
-        _ = self.placeImageScrollView.subviews.map { (view) -> Void in
-            view.removeFromSuperview()
-        }
+//        _ = self.placeImageScrollView.subviews.map { (view) -> Void in
+//            view.removeFromSuperview()
+//        }
         
         let url = dataArr[index]["image"]!
         
         let image = imageArr[url]! as UIImage
-        
-        let imageView = UIImageView(image: image)
-        
-        self.placeImageScrollView.addSubview(imageView)
+        imageInScrollView!.image = image
+        print(image.size)
+        imageInScrollView?.frame = CGRect(origin: CGPoint.zero,size:image.size)
+        placeImageScrollView.contentOffset = CGPoint.zero
+//        let imageView = UIImageView(image: image)
         
         self.placeImageScrollView.contentSize = image.size
-        
-        
+//        self.placeImageScrollView.addSubview(imageView)
+        print(placeImageScrollView.contentSize)
+//        self.placeImageScrollView.setZoomScale(self.placeImageScrollView.frame.width/image.size.width, animated: true)
         self.placeImageScrollView.bouncesZoom = true
     }
     

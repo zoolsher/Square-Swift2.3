@@ -74,10 +74,11 @@ class CollectionViewController: UIViewController,UITableViewDataSource {
                                 heart: data["heart"]!,
                                 comment: data["comment"]!
         )
-        fetchImage(NSURL(string:data["image"]!)!, res: {(img) in
-            //            todo: check the bang of the image lazy load
-            tableViewCell?.loadImage(img)
-        })
+        tableViewCell?.collectionImageView.af_setImageWithURL(NSURL(string:data["image"]!)!)
+//        fetchImage(NSURL(string:data["image"]!)!, res: {(img) in
+//            //            todo: check the bang of the image lazy load
+//            tableViewCell?.loadImage(img)
+//        })
         
         return tableViewCell!;
     }
