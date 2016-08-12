@@ -9,7 +9,11 @@
 import UIKit
 
 import EZLoadingActivity
-class LoginViewController: UIViewController {
+
+import NVActivityIndicatorView
+
+
+class LoginViewController: UIViewController,NVActivityIndicatorViewable {
 
     
     @IBOutlet weak var ContainerView: UIView!
@@ -30,7 +34,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,6 +165,9 @@ class LoginViewController: UIViewController {
         //        slogon.titleLabel?.text = "login";
         slogon.titleLabel?.textColor = UIColor.whiteColor()
         slogon.setTitle("Login", forState: UIControlState.Normal)
+        let font = UIFont(name: "DINCond-Regular", size: 20)
+        let st = NSAttributedString(string: "Login", attributes: [ NSFontAttributeName : font!])
+        slogon.setAttributedTitle(st, forState: UIControlState.Normal)
         slogon.addTarget(self, action: #selector(LoginViewController.goToLogin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         slogon.translatesAutoresizingMaskIntoConstraints = false;
         let slogonCenterX = NSLayoutConstraint(item: slogon,
@@ -206,11 +212,11 @@ class LoginViewController: UIViewController {
             self.curShow = 0
         }
         loginView.goForwardAction = {
-            EZLoadingActivity.show("正在登录", disableUI: false)
+            self.activityStart()
             let u = User.shared;
             (u.userName,u.password) = loginView.getUserNameAndPassword()
             u.login{(error,res,reason) in
-                
+                self.activityEnd()
                 dispatch_async(dispatch_get_main_queue()){
                     if((error) != nil){
                         let alert = UIAlertController(title: "网络错误", message: "网络错误", preferredStyle: UIAlertControllerStyle.Alert)
@@ -229,10 +235,6 @@ class LoginViewController: UIViewController {
                             UIView.setAnimationTransition(.FlipFromRight, forView: self.view, cache: true)
                             let home = self.storyboard?.instantiateViewControllerWithIdentifier("Home")
                             self.presentViewController(home!, animated: true, completion: nil)
-                            //            self.view.addSubview((home?.view)!)
-                            //            home?.view.frame = self.view.frame;
-                            //            self.ContainerView.removeFromSuperview()
-                            
                             UIView.commitAnimations();
                         }
                     }
@@ -246,7 +248,14 @@ class LoginViewController: UIViewController {
         return containView;
     }
     
+    func activityStart(){
+        
+        self.startActivityAnimating(self.view.bounds.size, message: "logining...", type: NVActivityIndicatorType.BallTrianglePath, color: UIColor.whiteColor(), padding: 125)
+    }
     
+    func activityEnd(){
+        self.stopActivityAnimating()
+    }
     //
     //    func initRegister()->UIView{
     //

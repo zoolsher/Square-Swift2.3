@@ -8,10 +8,10 @@
 
 import UIKit
 import Alamofire
-import EZLoadingActivity
+import NVActivityIndicatorView
 
 
-class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDelegate {
+class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDelegate,NVActivityIndicatorViewable {
 
     @IBOutlet weak var placeImageScrollView: UIScrollView!
     
@@ -28,6 +28,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     var curShowingImage = 0{
         didSet{
             self.showImage(curShowingImage)
+            self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
         }
     }
     
@@ -45,6 +46,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     }
     
     private var leftButton :UIBarButtonItem? = nil
+    private var middleButton : UIBarButtonItem? = nil
     private var rightButton :UIBarButtonItem? = nil
     
     func initRightButton(){
@@ -54,9 +56,13 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         leftButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WorkBoardViewController.showLastPic(_:)))
         leftButton?.enabled = false
         
+        middleButton = UIBarButtonItem(title: "1/\(self.imageArr.count)", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
+//        middleButton?.enabled = false
+        
         rightButton = UIBarButtonItem(title: ">", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WorkBoardViewController.showNextPic(_:)))
 
-        self.navigationItem.rightBarButtonItems = [rightButton!,leftButton!]
+        self.navigationItem.rightBarButtonItems = [rightButton!,middleButton!,leftButton!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +76,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     
     func showLastPic(_:AnyObject?){
         self.curShowingImage -= 1
+        self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
         self.leftButton?.enabled = true
         self.rightButton?.enabled = true
         if curShowingImage == 0 {
@@ -78,6 +85,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     }
     func showNextPic(_:AnyObject?){
         self.curShowingImage += 1
+        self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
         self.leftButton?.enabled = true
         self.rightButton?.enabled = true
         if curShowingImage == self.imageArr.count-1{
@@ -87,13 +95,13 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     
     func loadingImages (){
         
-        EZLoadingActivity.show("loading...", disableUI: false)
+        self.activityStart()
         
         for i in 0..<self.dataArr.count{
             fetchImage(NSURL(string:dataArr[i]["image"]!)!, res: { (image) in
                 self.imageArr[self.dataArr[i]["image"]!] = image
                 if self.imageArr.count >= self.dataArr.count{
-                    EZLoadingActivity.hide(success: true, animated: true)
+                    self.activityEnd()
                     self.curShowingImage = 0
                 }
             })
@@ -276,6 +284,14 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
                 return
             }
         }
+    }
+    func activityStart(){
+        
+        self.startActivityAnimating(self.view.bounds.size, message: "logining...", type: NVActivityIndicatorType.BallTrianglePath, color: UIColor.whiteColor(), padding: 125)
+    }
+    
+    func activityEnd(){
+        self.stopActivityAnimating()
     }
     
 }

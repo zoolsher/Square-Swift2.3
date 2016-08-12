@@ -2,33 +2,48 @@ PODS:
   - Alamofire (3.4.1)
   - AlamofireImage (2.4.1):
     - Alamofire (~> 3.3)
+  - Chatto (2.0.1)
+  - ChattoAdditions (2.0.1):
+    - Chatto
   - CHTCollectionViewWaterfallLayout/Swift (0.9.4)
   - Eureka (1.7.0)
   - EZLoadingActivity (0.8)
   - IQKeyboardManager (4.0.4)
+  - NVActivityIndicatorView (2.9)
   - RainbowNavigation (1.0.0)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage (~> 2.0)
+  - Chatto (= 2.0.1)
+  - ChattoAdditions (= 2.0.1)
   - CHTCollectionViewWaterfallLayout/Swift
   - Eureka (~> 1.7)
   - EZLoadingActivity
   - IQKeyboardManager
+  - NVActivityIndicatorView
   - RainbowNavigation
+  - SDWebImage (~> 3.8)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
+  Chatto: b3ea0ae33b29bafd0abc808bee7bb274e0b95cd1
+  ChattoAdditions: ba725e45bd8f9ef7818149b16222b33ce7f8a2ab
   CHTCollectionViewWaterfallLayout: db74be9135826d285f45ff163fd090e57c99fc50
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
+  NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
   RainbowNavigation: f22e8fa746a5c9cee7bc8ef4a02352e2f06d34e7
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: b7789aaacb3116c1bf2c0a6d35f5b6a486f96313
+PODFILE CHECKSUM: 4deb1e5a4ad9b4bc16fbbab0772aa6d0cdbed1c7
 
 COCOAPODS: 1.0.1

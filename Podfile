@@ -10,4 +10,8 @@ target 'Square' do
 	pod 'EZLoadingActivity'
 	pod 'RainbowNavigation'
 	pod 'Eureka', '~> 1.7'
+	pod 'Chatto', '= 2.0.1'
+	pod 'ChattoAdditions', '= 2.0.1'
+	pod 'SDWebImage', '~>3.8'
+	pod 'NVActivityIndicatorView'
 end

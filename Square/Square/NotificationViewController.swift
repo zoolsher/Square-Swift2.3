@@ -59,7 +59,7 @@ class NotificationViewController: UIViewController {
         
         self.commentDelegate1 = CommentDelegate()
         self.commentDelegate2 = CommentDelegate()
-        self.notificationDeletgate = NotificationDelegate()
+        self.notificationDeletgate = NotificationDelegate(vc: self)
         let base = commentDelegate1!.initWithFrame(CGRect(origin: CGPoint(x: frame.width*CGFloat(0), y:frame.origin.y), size: frame.size))
         let comment = commentDelegate2!.initWithFrame(CGRect(origin: CGPoint(x: frame.width*CGFloat(1), y:frame.origin.y), size: frame.size))
         let notification = notificationDeletgate!.initWithFrame(CGRect(origin: CGPoint(x: frame.width*CGFloat(2), y:frame.origin.y), size: frame.size))
@@ -86,6 +86,11 @@ class NotificationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! ChatViewController
+        vc.dataSource  = FakeDataSource(messages: TutorialMessageFactory.createMessages().map { $0 }, pageSize: 50)
+        vc.messageSender = vc.dataSource.messageSender
+    }
 
     
     func fetchImage(url:NSURL,res:(UIImage)->Void){

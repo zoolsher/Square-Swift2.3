@@ -11,6 +11,12 @@ import UIKit
 import Alamofire
 class NotificationDelegate:NSObject,UITableViewDelegate,UITableViewDataSource{
     
+    var curVC : UIViewController? = nil
+    
+    init(vc:UIViewController){
+        self.curVC = vc
+    }
+    
     func initWithFrame(frame:CGRect)->UIView{
         let comment = UITableView()
         comment.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
@@ -26,6 +32,11 @@ class NotificationDelegate:NSObject,UITableViewDelegate,UITableViewDataSource{
         comment.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 30+64))
         return comment
         
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.curVC?.performSegueWithIdentifier("GoToChat", sender: nil)
     }
     
     let imageURL:String = "http://p3.qqgexing.com/touxiang/20120804/1231/501ca5abbc54a.jpg";

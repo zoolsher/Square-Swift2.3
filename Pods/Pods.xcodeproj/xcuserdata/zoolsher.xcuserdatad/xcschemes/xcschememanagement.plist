@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Chatto.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ChattoAdditions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,12 +44,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Square.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>RainbowNavigation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,12 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0910D49FF9BD78F488DA5A12E2CC3C76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>137187ECC6456340681706DDFC4848CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2310E226B67AFF4363A94C3CF4256617</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>37C76CD246D637B8E4C586284A0D96B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DEF2A064CC0BEF7186D9078BC038B77</key>
+		<key>3F097924B3559F0B93F1D3DF2B064805</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4AEB16D5632372383248BBEC581B59AA</key>
+		<key>5F5B5F6ED63BBEB605BA2AC86BAB8A3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8698C4558AE758AD92477EC134E714F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1ED7F31B0182C19240D341742325CC0</key>
+		<key>EAA90314A91F91E9996397E54E8DA651</key>
 		<dict>
 			<key>primary</key>
 			<true/>

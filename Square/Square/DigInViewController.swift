@@ -12,7 +12,9 @@ import Alamofire
 
 import EZLoadingActivity
 
-class DigInViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CHTCollectionViewDelegateWaterfallLayout,UISearchBarDelegate {
+import NVActivityIndicatorView
+
+class DigInViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CHTCollectionViewDelegateWaterfallLayout,UISearchBarDelegate,NVActivityIndicatorViewable {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -121,14 +123,14 @@ class DigInViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
 
     func initLoadingImages(){
-        EZLoadingActivity.show("loading ...", disableUI: false)
+        self.activityStart()
         for index in 0..<beforeLoadArr.count {
             let url = NSURL(string:beforeLoadArr[index]["image"]! as String)
             fetchImage(url!, res: { (img) in
                 self.imageArr[self.beforeLoadArr[index]["image"]! as String] = img
                 if(self.imageArr.count >= self.beforeLoadArr.count){
                     self.loadFinish()
-                    EZLoadingActivity.hide(success:true,animated:true)
+                    self.activityEnd()
                 }
             })
         }
@@ -152,7 +154,16 @@ class DigInViewController: UIViewController,UICollectionViewDataSource,UICollect
             self.initLoadingImages()
         }
     }
-
+    
+    func activityStart(){
+        
+        self.startActivityAnimating(self.view.bounds.size, message: "logining...", type: NVActivityIndicatorType.BallTrianglePath, color: UIColor.whiteColor(), padding: 125)
+    }
+    
+    func activityEnd(){
+        self.stopActivityAnimating()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -164,3 +175,4 @@ class DigInViewController: UIViewController,UICollectionViewDataSource,UICollect
     */
 
 }
+

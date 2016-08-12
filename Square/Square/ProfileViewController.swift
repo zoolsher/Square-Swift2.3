@@ -20,9 +20,12 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     let userinfoReuse = "_userInfoProfileCollectionViewCell"
     let headerReuse = "_headerProfileCollectionReuseView"
     let workReuse = "_workProfileCollectionViewCell"
+    let stackReuse = "_stackProfileCollectionView"
     
     var workData = [[String:String]]()
     var userInfo = [String:String]()
+    var stackData = [[String:String]]()
+    var subscribeData = [[String:String]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         initCollectionView()
@@ -38,7 +41,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             "background":"http://d.haotu5.com/ga/images4/94/11/94115b4c6d8b53d1d888c44aa8bbf7d84da04fe4.jpg",
             "avator":"http://p3.wmpic.me/article/2015/03/18/1426649933_mafqzZLi.jpeg"
         ]
-        let testImage = "https://raw.githubusercontent.com/vsouza/awesome-ios/master/awesome_logo.png"
+        let testImage = "http://img5.imgtn.bdimg.com/it/u=326940507,725662448&fm=21&gp=0.jpg"
         self.workData = [
             [
                 "image":testImage,
@@ -59,6 +62,40 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
                 "image":testImage,
                 "heart":"100",
                 "comment":"1000"
+            ],
+        ]
+        self.stackData = [
+            [
+                "image":testImage,
+                "title":"likes by me",
+            ],
+            [
+                "image":testImage,
+                "title":"likes by me",
+            ],
+            [
+                "image":testImage,
+                "title":"likes by me",
+            ],
+            [
+                "image":testImage,
+                "title":"likes by me",
+            ],
+            [
+                "image":testImage,
+                "title":"likes by me",
+            ],[
+                "image":testImage,
+                "title":"likes by me",
+            ],
+        ]
+        self.subscribeData = [
+            [
+                "image":testImage,
+                "title":"what is this",
+            ],[
+                "image":testImage,
+                "title":"this is nothing",
             ],
         ]
         // Do any additional setup after loading the view.
@@ -88,11 +125,13 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         self.collectionView.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse)
         let workNib = UINib(nibName: "WorkProfileCollectionViewCell", bundle: nil)
         self.collectionView.registerNib(workNib, forCellWithReuseIdentifier: workReuse)
+        let stackNib = UINib(nibName: "StackProfileCollectionViewCell", bundle: nil)
+        self.collectionView.registerNib(stackNib, forCellWithReuseIdentifier: stackReuse)
         
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
+        return 4
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -101,6 +140,10 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             return 1
         case 1:
             return workData.count
+        case 2:
+            return stackData.count
+        case 3:
+            return subscribeData.count
         default :
             return 1;
         }
@@ -112,10 +155,34 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             return renderUserInfoCell(indexPath)
         case 1:
             return renderWorkCell(indexPath)
+        case 2:
+            return renderStackCell(indexPath)
+        case 3:
+            return renderSubscribeCell(indexPath)
         default:
             return renderUserInfoCell(indexPath)
         }
         
+    }
+    
+    func renderSubscribeCell(indexPath:NSIndexPath)->UICollectionViewCell{
+        let stackCell = collectionView.dequeueReusableCellWithReuseIdentifier(stackReuse, forIndexPath: indexPath) as! StackProfileCollectionViewCell
+        let data = subscribeData[indexPath.row]
+        stackCell.loadData(data["title"]!)
+        fetchImage(NSURL(string:data["image"]!)!) { (image) in
+            stackCell.loadImage(image)
+        }
+        return stackCell
+    }
+    
+    func renderStackCell(indexPath:NSIndexPath) -> UICollectionViewCell{
+        let stackCell = collectionView.dequeueReusableCellWithReuseIdentifier(stackReuse, forIndexPath: indexPath) as! StackProfileCollectionViewCell
+        let data = stackData[indexPath.row]
+        stackCell.loadData(data["title"]!)
+        fetchImage(NSURL(string:data["image"]!)!) { (image) in
+            stackCell.loadImage(image)
+        }
+        return stackCell
     }
     
     func renderWorkCell(indexPath:NSIndexPath)->UICollectionViewCell{
@@ -165,6 +232,14 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
                 let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
                 retView?.loadData(" Work(\(workData.count))")
                 return retView!
+            case 2:
+                let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
+                retView?.loadData(" Stack(\(stackData.count))")
+                return retView!
+            case 3:
+                let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
+                retView?.loadData(" Subscribe(\(subscribeData.count))")
+                return retView!
             default:
                 let retView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuse, forIndexPath: indexPath) as? HeaderProfileCollectionReusableView
                 retView?.loadData(" Work(\(workData.count))")
@@ -185,10 +260,11 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         case 0:
             return CGSize(width: self.view.frame.width ,height: 164);
         case 1:
-            if indexPath.row == 1{
-                return CGSize(width: (self.view.frame.width/2)-4,height:150)
-            }
             return CGSize(width: (self.view.frame.width/2)-4,height:100)
+        case 2:
+            fallthrough
+        case 3:
+            return CGSize(width: (self.view.frame.width/3)-6,height:100)
         default:
             return CGSize.zero
         }
