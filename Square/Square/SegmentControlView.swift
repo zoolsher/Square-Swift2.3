@@ -20,6 +20,7 @@ class SegmentControlView: UIView {
     
     @IBOutlet weak var label3: UILabel!
     
+    @IBOutlet weak var constainsForTapView: NSLayoutConstraint!
     
     weak var view:UIView!;
     
@@ -112,8 +113,12 @@ class SegmentControlView: UIView {
         }
     }
     
-    
-    
+    var selected : Int = 1{
+        didSet{
+            constainsForTapView = NSLayoutConstraint(item: constainsForTapView.firstItem, attribute: constainsForTapView.firstAttribute, relatedBy: constainsForTapView.relation, toItem: labelArr[selected], attribute: constainsForTapView.secondAttribute, multiplier: constainsForTapView.multiplier, constant: constainsForTapView.constant)
+            
+        }
+    }
     
     func loadViewFromXib()->UIView{
 //        let bundle = Bundle.main.loadNibNamed("SegmentControlView", owner: self, options: nil);
@@ -121,6 +126,8 @@ class SegmentControlView: UIView {
         let tmpView = bundle?.first as! UIView;
         return tmpView;
     }
+    
+    
     
     func setupSubviews(){
         
@@ -150,6 +157,5 @@ class SegmentControlView: UIView {
     convenience init(){
         self.init(frame:CGRect.zero)
     }
-    
     
 }

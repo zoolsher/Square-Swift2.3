@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EasyPeasy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,27 +82,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0910D49FF9BD78F488DA5A12E2CC3C76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>137187ECC6456340681706DDFC4848CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2310E226B67AFF4363A94C3CF4256617</key>
+		<key>1913944AC2324B464548E6F0237AA826</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>21548B54EFFACDBE856248B9E0B5C82A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>223C952D3CD291DE22488C1F159F503B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>37C76CD246D637B8E4C586284A0D96B2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3F097924B3559F0B93F1D3DF2B064805</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A189945380983029CF6D90B1F5999AC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>ABB6BE779B371B39FE14B1869976620C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAA90314A91F91E9996397E54E8DA651</key>
+		<key>EF3412F4ECD3022275431440BF4D69AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

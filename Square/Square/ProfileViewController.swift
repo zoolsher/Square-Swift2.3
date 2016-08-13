@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             "background":"http://d.haotu5.com/ga/images4/94/11/94115b4c6d8b53d1d888c44aa8bbf7d84da04fe4.jpg",
             "avator":"http://p3.wmpic.me/article/2015/03/18/1426649933_mafqzZLi.jpeg"
         ]
-        let testImage = "http://img5.imgtn.bdimg.com/it/u=326940507,725662448&fm=21&gp=0.jpg"
+        let testImage = "http://img.sootuu.com/Exchange/2013-6/20136149264922032024.jpg"
         self.workData = [
             [
                 "image":testImage,
@@ -192,8 +192,12 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     func renderUserInfoCell(indexPath:NSIndexPath)->UICollectionViewCell{
         let userinfoCell = collectionView.dequeueReusableCellWithReuseIdentifier(userinfoReuse, forIndexPath: indexPath) as? UserInfoProfileCollectionViewCell
         userinfoCell?.loadData(userInfo["username"] ?? "", title: userInfo["title"] ?? "", info: userInfo["info"] ?? "", subscribe: userInfo["subscribe"] ?? "", follower: userInfo["follower"] ?? "", following: userInfo["following"] ?? "")
+
         userinfoCell?.userBackgroundImageView.af_setImageWithURL(NSURL(string:userInfo["background"]!)!)
         userinfoCell?.avator.af_setImageWithURL(NSURL(string:userInfo["avator"]!)!)
+        userinfoCell?.clickAction = {
+            self.performSegueWithIdentifier("GoToFollower", sender: nil)
+        }
         return userinfoCell!
     }
     

@@ -168,6 +168,7 @@
                 <outlet property="followerLabel" destination="IQI-9R-jyR" id="fmq-Bl-pUF"/>
                 <outlet property="followingLabel" destination="fku-h6-iRY" id="uOz-To-T95"/>
                 <outlet property="infoLabel" destination="XcV-wk-xR8" id="Lo3-hS-IM6"/>
+                <outlet property="listenerView" destination="phE-7F-v8S" id="LQb-cF-7Ui"/>
                 <outlet property="subscribeLabel" destination="ufT-Wp-Mc7" id="XCg-9D-rNX"/>
                 <outlet property="titleLabel" destination="96J-mT-7wY" id="2Oc-HD-oM8"/>
                 <outlet property="userBackgroundImageView" destination="DZ8-TV-CKk" id="ETU-Q8-Smt"/>

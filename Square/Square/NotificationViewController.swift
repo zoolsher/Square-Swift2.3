@@ -32,6 +32,7 @@ class NotificationViewController: UIViewController {
         self.segment.name1 = "Message"
         self.segment.name2 = "Comment"
         self.segment.name3 = "Notification"
+        self.segment.selected = 0
         self.segment.labelAction = {
             (lastIndex,index) in
             UIView.animateWithDuration(0.5,
@@ -41,12 +42,17 @@ class NotificationViewController: UIViewController {
                                        options: UIViewAnimationOptions.CurveEaseInOut,
                                        animations: {
                                         self.containerView!.frame = CGRect(x: -self.view.frame.width*CGFloat(index), y: self.view.frame.origin.y, width: self.view.frame.width*3, height: self.view.frame.height)
-//                                        if let temp = self.segmentViews[index] as? UITableView {
-//                                            temp.reloadData()
-//                                        }
+                                        
+                                        for view in self.segmentViews{
+                                            view.hidden = true
+                                        }
+
+                                        self.segmentViews[index].hidden = false
+                                        
                 },
                                        completion: nil)
         }
+        
 //        self.view.insertSubview(self.segmentViews[1], atIndex: 0)
 //        curView = self.segmentViews[1]
         // Do any additional setup after loading the view.

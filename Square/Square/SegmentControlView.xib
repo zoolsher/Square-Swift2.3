@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SegmentControlView" customModule="Square" customModuleProvider="target">
             <connections>
+                <outlet property="constainsForTapView" destination="6Oe-Hk-hG3" id="K62-3S-D1u"/>
                 <outlet property="container" destination="iN0-l3-epB" id="gYI-Qw-nhT"/>
                 <outlet property="label1" destination="F5P-Y9-uVl" id="sjo-eP-7r2"/>
                 <outlet property="label2" destination="mWt-Pw-MgS" id="l2z-5S-7da"/>

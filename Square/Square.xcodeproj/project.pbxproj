@@ -12,6 +12,7 @@
 		C31F6DEC1D56377700CEABEA /* Square.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C31F6DEA1D56377700CEABEA /* Square.xcdatamodeld */; };
 		C31F6DEE1D56377700CEABEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C31F6DED1D56377700CEABEA /* Assets.xcassets */; };
 		C31F6DF11D56377700CEABEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31F6DEF1D56377700CEABEA /* LaunchScreen.storyboard */; };
+		C34212EB1D5EF8D30031838D /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34212EA1D5EF8D20031838D /* FollowerViewController.swift */; };
 		C34384DE1D5D74B400248A33 /* SendingStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34384DC1D5D74B400248A33 /* SendingStatusCollectionViewCell.swift */; };
 		C34384DF1D5D74B400248A33 /* SendingStatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34384DD1D5D74B400248A33 /* SendingStatusCollectionViewCell.xib */; };
 		C34384E11D5D75C600248A33 /* SendingStatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34384E01D5D75C600248A33 /* SendingStatusPresenter.swift */; };
@@ -60,6 +61,8 @@
 		C3AB478D1D5CE34500478CF5 /* SlidingDatasSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB478C1D5CE34500478CF5 /* SlidingDatasSource.swift */; };
 		C3AB478F1D5CE6F100478CF5 /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB478E1D5CE6F100478CF5 /* BaseMessageHandler.swift */; };
 		C3B0170C1D56563D00C22980 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0170B1D56563D00C22980 /* WorkViewController.swift */; };
+		C3C340A31D5F467E00F311FC /* FolllowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C340A11D5F467E00F311FC /* FolllowerTableViewCell.swift */; };
+		C3C340A41D5F467E00F311FC /* FolllowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C340A21D5F467E00F311FC /* FolllowerTableViewCell.xib */; };
 		C3CAF8461D5638A500A334D0 /* BASE.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAF8451D5638A500A334D0 /* BASE.swift */; };
 		C3CAF8481D5638B200A334D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAF8471D5638B200A334D0 /* User.swift */; };
 		C3CAF84D1D563B3B00A334D0 /* CollectionOnHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAF84C1D563B3B00A334D0 /* CollectionOnHomeView.swift */; };
@@ -91,6 +94,7 @@
 		C31F6DED1D56377700CEABEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C31F6DF01D56377700CEABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C31F6DF21D56377700CEABEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C34212EA1D5EF8D20031838D /* FollowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		C34384DC1D5D74B400248A33 /* SendingStatusCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		C34384DD1D5D74B400248A33 /* SendingStatusCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendingStatusCollectionViewCell.xib; sourceTree = "<group>"; };
 		C34384E01D5D75C600248A33 /* SendingStatusPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusPresenter.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		C3AB478C1D5CE34500478CF5 /* SlidingDatasSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingDatasSource.swift; sourceTree = "<group>"; };
 		C3AB478E1D5CE6F100478CF5 /* BaseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
 		C3B0170B1D56563D00C22980 /* WorkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
+		C3C340A11D5F467E00F311FC /* FolllowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolllowerTableViewCell.swift; sourceTree = "<group>"; };
+		C3C340A21D5F467E00F311FC /* FolllowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolllowerTableViewCell.xib; sourceTree = "<group>"; };
 		C3CAF8451D5638A500A334D0 /* BASE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BASE.swift; sourceTree = "<group>"; };
 		C3CAF8471D5638B200A334D0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C3CAF8491D5639DB00A334D0 /* DINCOND-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCOND-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -371,6 +377,15 @@
 			name = Work;
 			sourceTree = "<group>";
 		};
+		C3C340A01D5F460A00F311FC /* Follower */ = {
+			isa = PBXGroup;
+			children = (
+				C3C340A11D5F467E00F311FC /* FolllowerTableViewCell.swift */,
+				C3C340A21D5F467E00F311FC /* FolllowerTableViewCell.xib */,
+			);
+			name = Follower;
+			sourceTree = "<group>";
+		};
 		C3CAF8441D56389700A334D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +398,7 @@
 		C3CAF84A1D563B1900A334D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3C340A01D5F460A00F311FC /* Follower */,
 				C36D07F41D5B29690095CAEE /* Profile */,
 				C36D07EF1D5AF44F0095CAEE /* WorkBoard */,
 				C3A918911D58994B00B119E3 /* DigIn */,
@@ -426,6 +442,7 @@
 				C36D07FD1D5B657D0095CAEE /* ProfileViewController.swift */,
 				C3E7E41E1D5C5A6600B94ABA /* ProfileEditViewController.swift */,
 				C3AB476F1D5CDAF500478CF5 /* ChatViewController.swift */,
+				C34212EA1D5EF8D20031838D /* FollowerViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -512,6 +529,7 @@
 				C39F29C81D571F3E00D832FB /* LoginView.xib in Resources */,
 				C3CAF84F1D563B5B00A334D0 /* CollectionOnHomeView.xib in Resources */,
 				C35A18121D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift in Resources */,
+				C3C340A41D5F467E00F311FC /* FolllowerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,10 +608,12 @@
 				C3A918941D589AB300B119E3 /* DigInCollectionViewCell.swift in Sources */,
 				C39F29CA1D574AAF00D832FB /* NotificationViewController.swift in Sources */,
 				C3E7E41F1D5C5A6600B94ABA /* ProfileEditViewController.swift in Sources */,
+				C3C340A31D5F467E00F311FC /* FolllowerTableViewCell.swift in Sources */,
 				C3AB47821D5CE24500478CF5 /* DemoPhotoMessageModel.swift in Sources */,
 				C39F29D41D57825D00D832FB /* NotificationDelegate.swift in Sources */,
 				C3AB477A1D5CE23800478CF5 /* DemoTextMessageHandler.swift in Sources */,
 				C34384DE1D5D74B400248A33 /* SendingStatusCollectionViewCell.swift in Sources */,
+				C34212EB1D5EF8D30031838D /* FollowerViewController.swift in Sources */,
 				C3CAF8481D5638B200A334D0 /* User.swift in Sources */,
 				C3AB477B1D5CE23800478CF5 /* DemoTextMessageModel.swift in Sources */,
 				C3AB47891D5CE32000478CF5 /* FakeDataSource.swift in Sources */,
@@ -737,10 +757,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zoolsher.Square;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -750,10 +772,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zoolsher.Square;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

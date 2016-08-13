@@ -143,24 +143,26 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
     }
     
     func showImage(index:Int){
-//        _ = self.placeImageScrollView.subviews.map { (view) -> Void in
-//            view.removeFromSuperview()
-//        }
-        
         let url = dataArr[index]["image"]!
-        
         let image = imageArr[url]! as UIImage
         imageInScrollView!.image = image
-        print(image.size)
-        imageInScrollView?.frame = CGRect(origin: CGPoint.zero,size:image.size)
-        placeImageScrollView.contentOffset = CGPoint.zero
-//        let imageView = UIImageView(image: image)
-        
+        imageInScrollView?.frame = CGRect(origin: CGPoint.zero,size: image.size)
         self.placeImageScrollView.contentSize = image.size
-//        self.placeImageScrollView.addSubview(imageView)
-        print(placeImageScrollView.contentSize)
-//        self.placeImageScrollView.setZoomScale(self.placeImageScrollView.frame.width/image.size.width, animated: true)
         self.placeImageScrollView.bouncesZoom = true
+        
+        let boundsSize = self.placeImageScrollView.bounds
+        var frameToCenter = (imageInScrollView?.frame)!
+        if(frameToCenter.size.width < boundsSize.width){
+            frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
+        }else{
+            frameToCenter.origin.x = 0
+        }
+        if (frameToCenter.size.height < boundsSize.height){
+            frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
+        }else{
+            frameToCenter.origin.y = 0;
+        }
+        imageInScrollView!.frame = frameToCenter
     }
     
     func triggerSquare(sender: UIButton) {
@@ -262,6 +264,8 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         self.view.addSubview(self.pointViewRightDown!)
     }
     func endCutting(){
+        print(self.imageInScrollView?.image?.size)
+        print(self.getSquareInfo())
         self.cuttingView!.removeFromSuperview()
         self.pointViewLeftTop!.removeFromSuperview()
         self.pointViewRightDown!.removeFromSuperview()
@@ -273,10 +277,12 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         let offset = self.placeImageScrollView.contentOffset
         let scale = self.placeImageScrollView.zoomScale
         let size = self.cuttingView!.frame.size
+        let imageO = self.imageInScrollView!.frame.origin
         let origin = self.pointViewLeftTop!.center
         
-        let startPoint = CGPoint(x:(origin.x-offset.x)/scale,y:(origin.y-offset.y)/scale)
+        let startPoint = CGPoint(x:(origin.x-offset.x-imageO.x)/scale,y:(origin.y-offset.y-64-imageO.y)/scale)
         let squareSize = CGSize(width:size.width/scale,height:size.height/scale)
+        
         return (startPoint,squareSize)
         
 //        self.pointViewLeftTop?.center - self.placeImageScrollView.frame.origin

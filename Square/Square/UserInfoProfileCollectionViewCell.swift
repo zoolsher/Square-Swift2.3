@@ -24,6 +24,10 @@ class UserInfoProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var followingLabel: UILabel!
     
     @IBOutlet weak var userBackgroundImageView: UIImageView!
+    
+    @IBOutlet weak var listenerView: UIView!
+    
+    var clickAction : (()->Void)? = nil;
     func loadData(userName:String,title:String,info:String,subscribe:String,follower:String,following:String){
         self.userNameLabel.text = userName
         self.titleLabel.text = title
@@ -41,8 +45,17 @@ class UserInfoProfileCollectionViewCell: UICollectionViewCell {
         self.avator.image = image
     }
     
+    func tapHandler(sender:UITapGestureRecognizer){
+        guard let clickAction = clickAction else { return }
+        clickAction();
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let listener = UITapGestureRecognizer(target: self, action: #selector(tapHandler(_:)))
+        
+        self.listenerView.addGestureRecognizer(listener)
         // Initialization code
     }
 

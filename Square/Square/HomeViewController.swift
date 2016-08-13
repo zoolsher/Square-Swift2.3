@@ -186,6 +186,7 @@ class HomeViewController: UIViewController,UITabBarDelegate {
             self.performSegueWithIdentifier("GoToDigIn", sender: nil)
             break;
         case 2:
+            tabbar.selectedItem = nil
             break;
         case 3:
 //            self.performSegue(withIdentifier: "GoToNotification", sender: nil)
