@@ -41,6 +41,7 @@ class DigInViewController: UIViewController,UICollectionViewDataSource,UICollect
         initCollectionView()
         initLoadingImages()
         searchBar.delegate = self;
+        self.title = "Dig-In"
         // Do any additional setup after loading the view.
     }
     

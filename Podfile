@@ -15,4 +15,7 @@ target 'Square' do
 	pod 'SDWebImage', '~>3.8'
 	pod 'NVActivityIndicatorView'
 	pod "EasyPeasy"
+	pod "BSImagePicker", "~> 2.3"
+	pod 'TOCropViewController'
+	pod "SABlurImageView"
 end

@@ -11,6 +11,14 @@
 import UIKit
 import RainbowNavigation
 import Alamofire
+import BSImagePicker
+import Photos
+
+private extension BSImagePickerViewController {
+    func costumColor(){
+        
+    }
+}
 
 class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
@@ -22,13 +30,16 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     let workReuse = "_workProfileCollectionViewCell"
     let stackReuse = "_stackProfileCollectionView"
     
+    var isUserSelf:Bool = true
     var workData = [[String:String]]()
     var userInfo = [String:String]()
     var stackData = [[String:String]]()
     var subscribeData = [[String:String]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Profile"
         initCollectionView()
+        initLeftButton()
         initRightButton()
         self.navigationController?.navigationBar.df_setBackgroundColor(UIColor.clearColor())
         self.userInfo = [
@@ -102,8 +113,52 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func initRightButton(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: #selector(ProfileViewController.rightButtonHandler(_:)));
+        if isUserSelf{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: #selector(ProfileViewController.rightButtonHandler(_:)));
+        }else{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "following", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ProfileViewController.followAction(_:)))
+        }
     }
+    
+    func followAction(sender:AnyObject?){
+        let control = UIAlertController(title: "您要怎么处理这个人", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        control.addAction(UIAlertAction(title: "怒取关", style: UIAlertActionStyle.Default, handler: { (action) in
+            print("取关")
+        }));
+        control.addAction(UIAlertAction(title:"再关注一会儿",style: UIAlertActionStyle.Cancel, handler: { (action) in
+            print("goon")
+        }))
+        self.presentViewController(control, animated: true, completion: nil)
+    }
+    
+    func initLeftButton(){
+        if isUserSelf{
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(createWork(_:)))
+        }else{
+        
+        }
+    }
+    
+    func createWork(sender:AnyObject?){
+        let vc = BSImagePickerViewController()
+        UINavigationBar.appearance().tintColor = UIColor.redColor();
+        
+        bs_presentImagePickerController(vc, animated: true,
+                                        select: { (asset: PHAsset) -> Void in
+                                            // User selected an asset.
+                                            // Do something with it, start upload perhaps?
+            }, deselect: { (asset: PHAsset) -> Void in
+                // User deselected an assets.
+                // Do something, cancel upload?
+            }, cancel: { (assets: [PHAsset]) -> Void in
+                // User cancelled. And this where the assets currently selected.
+            }, finish: { (assets: [PHAsset]) -> Void in
+                // User finished with these assets
+            }, completion: {
+                UINavigationBar.appearance().tintColor = UIColor.whiteColor();
+        })
+    }
+    
     func rightButtonHandler(sender:AnyObject?){
         self.performSegueWithIdentifier("GoToProfileEdit", sender: nil)
     }
@@ -270,7 +325,9 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             return
         case 1:
             let VC = self.storyboard?.instantiateViewControllerWithIdentifier("WorkBoard")
-            self.showViewController(VC!, sender: nil)
+            VC?.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(VC!, animated: true)
+//            self.showViewController(VC!, sender: nil)
             return
         default:
             return

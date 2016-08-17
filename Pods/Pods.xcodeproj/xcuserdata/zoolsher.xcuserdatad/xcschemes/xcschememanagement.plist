@@ -14,6 +14,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BSGridCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker-BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CHTCollectionViewWaterfallLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,12 +79,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SABlurImageView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TOCropViewController-TOCropViewControllerBundle.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TOCropViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIImageViewModeScaleAspect.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,22 +117,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0F32F2F217E180409B2251CEC6807401</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0FF38C485BD8E73F614C919F834D6EAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>137187ECC6456340681706DDFC4848CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1913944AC2324B464548E6F0237AA826</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>21548B54EFFACDBE856248B9E0B5C82A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>223C952D3CD291DE22488C1F159F503B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>26E16D0B3E6E9F80EE3651CCBE7E0756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37364C9E9BB38434DD6810C91A1E32DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4F32E3F3E5474DC7E519C50B48995AB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5F5B5F6ED63BBEB605BA2AC86BAB8A3B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>682930AD155024D1D0998E8122B7F200</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77A1A80C9CBEF5FC553EB02B542792C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +187,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>903A108934E1A089B76F443DC34C8E54</key>
+		<key>8AA3DDB8797222294E1288CB197A8347</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A189945380983029CF6D90B1F5999AC7</key>
+		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +202,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF3412F4ECD3022275431440BF4D69AA</key>
+		<key>C59EE95662AD4757E7FCE220DB1AFA41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF2CFEB1D1318AA78B95188D064D852E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7DE5171AA3C53DA4E4A078B795C78EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

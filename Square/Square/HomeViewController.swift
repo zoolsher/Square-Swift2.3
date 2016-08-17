@@ -12,14 +12,14 @@ import Alamofire
 
 
 
-class HomeViewController: UIViewController,UITabBarDelegate {
+class HomeViewController: UIViewController {
     
     //MARK:args
     
     
     @IBOutlet weak var segment: SegmentControlView!
     
-    @IBOutlet weak var tabbar: UITabBar!
+    
     
     
     
@@ -53,9 +53,8 @@ class HomeViewController: UIViewController,UITabBarDelegate {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.goToWorks(_:)))
         self.goToWorkLabel.addGestureRecognizer(tapGR)
         
-        self.tabbar.delegate = self;
         
-        UITabBar.appearance().tintColor = UIColor(red:0.50, green:0.12, blue:0.13, alpha:1.00)
+        
         
         self.initSegment()
 
@@ -63,7 +62,6 @@ class HomeViewController: UIViewController,UITabBarDelegate {
     
     override func viewWillAppear(animated: Bool) {
         //set the selected into nil
-        self.tabbar.selectedItem = nil;
     }
     
     override func didReceiveMemoryWarning() {
@@ -174,32 +172,7 @@ class HomeViewController: UIViewController,UITabBarDelegate {
     
   
     
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-//        let index = tabBar.items?.index(of: item);
-        let index = tabBar.items?.indexOf(item)
-        let v:Int = index!;
-        switch v{
-        case 0:
-            tabbar.selectedItem = nil
-            break;
-        case 1:
-            self.performSegueWithIdentifier("GoToDigIn", sender: nil)
-            break;
-        case 2:
-            tabbar.selectedItem = nil
-            break;
-        case 3:
-//            self.performSegue(withIdentifier: "GoToNotification", sender: nil)
-            self.performSegueWithIdentifier("GoToNotification", sender: nil)
-            break;
-        case 4:
-            self.performSegueWithIdentifier("GoToProfile", sender: nil)
-            break;
-        default:
-            break;
-        }
-        
-    }
+
     
     
     //MARK:

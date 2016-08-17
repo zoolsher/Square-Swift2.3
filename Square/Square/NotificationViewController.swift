@@ -26,7 +26,7 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Notification"
         initSegmentViews()
         
         self.segment.name1 = "Message"
@@ -35,22 +35,29 @@ class NotificationViewController: UIViewController {
         self.segment.selected = 0
         self.segment.labelAction = {
             (lastIndex,index) in
-            UIView.animateWithDuration(0.5,
-                                       delay: 0.0,
-                                       usingSpringWithDamping: 0.5,
-                                       initialSpringVelocity: 15.0,
-                                       options: UIViewAnimationOptions.CurveEaseInOut,
-                                       animations: {
-                                        self.containerView!.frame = CGRect(x: -self.view.frame.width*CGFloat(index), y: self.view.frame.origin.y, width: self.view.frame.width*3, height: self.view.frame.height)
-                                        
-                                        for view in self.segmentViews{
-                                            view.hidden = true
-                                        }
-
-                                        self.segmentViews[index].hidden = false
-                                        
-                },
-                                       completion: nil)
+            self.containerView!.frame = CGRect(x: -self.view.frame.width*CGFloat(index), y: self.view.frame.origin.y, width: self.view.frame.width*3, height: self.view.frame.height)
+            
+            for view in self.segmentViews{
+                view.hidden = true
+            }
+            
+            self.segmentViews[index].hidden = false
+//            UIView.animateWithDuration(0.5,
+//                                       delay: 0.0,
+//                                       usingSpringWithDamping: 0.5,
+//                                       initialSpringVelocity: 15.0,
+//                                       options: UIViewAnimationOptions.CurveEaseInOut,
+//                                       animations: {
+//                                        self.containerView!.frame = CGRect(x: -self.view.frame.width*CGFloat(index), y: self.view.frame.origin.y, width: self.view.frame.width*3, height: self.view.frame.height)
+//                                        
+//                                        for view in self.segmentViews{
+//                                            view.hidden = true
+//                                        }
+//
+//                                        self.segmentViews[index].hidden = false
+//                                        
+//                },
+//                                       completion: nil)
         }
         
 //        self.view.insertSubview(self.segmentViews[1], atIndex: 0)

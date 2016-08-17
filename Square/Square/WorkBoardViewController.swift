@@ -10,64 +10,296 @@ import UIKit
 import Alamofire
 import NVActivityIndicatorView
 import SDWebImage
+import EasyPeasy
+import TOCropViewController
+import SwiftyJSON
+
+extension UIImage{
+    static func cuttingImage(image:UIImage,withRect rect:CGRect) -> UIImage{
+        let i = image.CGImage
+        let newi = CGImageCreateWithImageInRect(i, rect)
+        return UIImage(CGImage: newi!)
+    }
+}
+
+private struct Line{
+    var startPoint:CGPoint
+    var endPoint:CGPoint
+}
+
+extension UIView {
+    func addDashedBorder(size:CGSize) {
+        
+        let color = UIColor(red:0.80, green:0.20, blue:0.20, alpha:1.00).CGColor
+        let length = min(CGFloat(10),size.width/2,size.height/2)
+        
+        let lineArr = [
+            Line(startPoint: CGPoint(x:0,y:0), endPoint: CGPoint(x:0,y:length)),
+            Line(startPoint: CGPoint(x:0,y:0), endPoint: CGPoint(x:length,y:0)),
+            Line(startPoint: CGPoint(x:size.width,y:size.height), endPoint: CGPoint(x:size.width,y:size.height-length)),
+            Line(startPoint: CGPoint(x:size.width,y:size.height), endPoint: CGPoint(x:size.width-length,y:size.height)),
+            Line(startPoint: CGPoint(x:0,y:size.height), endPoint: CGPoint(x:0,y:size.height-length)),
+            Line(startPoint: CGPoint(x:0,y:size.height), endPoint: CGPoint(x:length,y:size.height)),
+            Line(startPoint: CGPoint(x:size.width,y:0), endPoint: CGPoint(x:size.width-length,y:0)),
+            Line(startPoint: CGPoint(x:size.width,y:0), endPoint: CGPoint(x:size.width,y:length)),
+        ]
+        
+        for line in lineArr{
+            let line1 = UIBezierPath()
+            line1.moveToPoint(line.startPoint)
+            line1.addLineToPoint(line.endPoint)
+            
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.bounds = CGRect(origin: CGPoint.zero, size:size)
+            shapeLayer.position = CGPoint(x: size.width/2, y: size.height/2)
+            shapeLayer.fillColor = UIColor.clearColor().CGColor
+            shapeLayer.strokeColor = color
+            shapeLayer.lineWidth = 2
+            shapeLayer.path = line1.CGPath
+            
+            self.layer.addSublayer(shapeLayer)
+        }
+        
+    }
+}
 
 
-class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDelegate,NVActivityIndicatorViewable {
+class WorkBoardViewController: UIViewController,UIScrollViewDelegate,NVActivityIndicatorViewable,TOCropViewControllerDelegate {
 
     @IBOutlet weak var placeImageScrollView: UIScrollView!
-    
-    @IBOutlet weak var tabbar: UITabBar!
+
+    @IBAction func squareClick(sender: UIButton) {
+        if isSquareShowing{
+            hideSquares()
+            isSquareShowing = false
+        }else{
+            showSquares()
+            isSquareShowing = true
+        }
+    }
     
     var workBoardId = "whatever";
     
     var dataArr = [
-        ["image":"https://raw.githubusercontent.com/vsouza/awesome-ios/master/awesome_logo.png"],
-        ["image":"http://file.ynet.com/2/1608/09/11576086-500.jpg"]
+        ["id":"1","image":"https://raw.githubusercontent.com/vsouza/awesome-ios/master/awesome_logo.png" ],
+        ["id":"2","image":"http://file.ynet.com/2/1608/09/11576086-500.jpg"]
     ]
     
-    var curShowingImage = 0{
-        didSet{
-            self.showImage(curShowingImage)
-            self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
-        }
-    }
+    var squareArr =
+        [
+            "1":[
+            [
+                "framex":"200",
+                "framey":"200",
+                "width":"100",
+                "height":"100",
+                "count":"100"
+            ],
+            [
+                "framex":"10",
+                "framey":"10",
+                "width":"100",
+                "height":"100",
+                "count":"10"
+            ]
+            ],
+            "2":[
+                [
+                    "framex":"0",
+                    "framey":"0",
+                    "width":"10",
+                    "height":"10",
+                    "count":"100"
+                ],
+                [
+                    "framex":"10",
+                    "framey":"10",
+                    "width":"200",
+                    "height":"100",
+                    "count":"10"
+                ]
+            ]
+        ]
+    
+    public var workId:String = "10"
     
     private var imageArr:[String:UIImage] = [String:UIImage]()
     
-    var imageInScrollView : UIImageView? = nil
+    private var imageViewsInScroll = [UIImageView]()
+    
+    private var isSquareShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageInScrollView = UIImageView()
-        self.placeImageScrollView.addSubview(imageInScrollView!)
-        initRightButton()
         self.placeImageScrollView.delegate = self
-        self.tabbar.delegate = self;
+        self.initImageViewsInScroll()
+        self.initRightButton()
         loadingImages()
-        
-        
-        
-        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        loadWorkInfo()
+    }
+    func loadWorkInfo(){
+        self.activityStart()
+        if workId == ""{return}
+        else{
+            guard let url = NSURL(string:BASE.LOC+"/works/getWorkPiecesById/\(self.workId)") else {return}
+            Alamofire.request(.GET, url)
+                .response{ request, response, data, error in
+                    self.activityEnd()
+                    if (error != nil){
+                        let alert = UIAlertController(title: "网络错误", message: "网络错误", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "好吧", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }else{
+                        let json = JSON(data: data!)
+                        print(json[0])
+                    }
+            }
+        }
     }
     
-    private var leftButton :UIBarButtonItem? = nil
-    private var middleButton : UIBarButtonItem? = nil
-    private var rightButton :UIBarButtonItem? = nil
     
     func initRightButton(){
+        let btn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(goToCropView(_:)))
+        self.navigationItem.rightBarButtonItem = btn
+    }
+    
+    func goToCropView(sender:AnyObject?){
+        let image = imageArr[dataArr[0]["image"]!]!
         
-
+        let cropViewController = TOCropViewController.init(image: image)
+        cropViewController.aspectRatioPickerButtonHidden = true
+        cropViewController.delegate = self
+        self.presentViewController(cropViewController, animated: true, completion: nil)
+    }
+    
+    func cropViewController(cropViewController: TOCropViewController!, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func cropViewController(cropViewController: TOCropViewController!, didCropToImage image: UIImage!, withRect cropRect: CGRect, angle: Int) {
+        print(angle)
+        print(cropRect)
+        cropViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func initImageViewsInScroll(){
+        self.placeImageScrollView.pagingEnabled = true
+        self.placeImageScrollView.alwaysBounceHorizontal = true
+        self.placeImageScrollView.alwaysBounceVertical = false
+        var lastView:UIView? = nil
+        for _ in 0..<dataArr.count{
+            let imageView =  UIImageView()
+            placeImageScrollView.addSubview(imageView)
+            if let consView = lastView {
+                imageView <- [
+                    Size().like(placeImageScrollView),
+                    Left().to(consView,.Right),
+                    Top().to(placeImageScrollView)
+                ]
+            }else{
+                imageView <- [
+                    Size().like(placeImageScrollView),
+                    Left().to(self.placeImageScrollView,.Left),
+                    Top().to(placeImageScrollView)
+                ]
+            }
+            imageView.contentMode = .ScaleAspectFit
+            imageView.backgroundColor = UIColor.blackColor()
+            lastView = imageView
+            self.imageViewsInScroll.append(imageView)
+        }
+    }
+    
+    var squaresAreInit = false
+    var squaresArr = [UIView]()
+    func showSquares(){
+        if !squaresAreInit {
+            for index in 0..<dataArr.count{
+                guard let id = dataArr[index]["id"] else {continue}
+                guard let squares = squareArr[id] else {continue}
+                for i in 0..<squares.count{
+                    let square = squares[i]
+                    let x = CGFloat(NSNumberFormatter().numberFromString(square["framex"] ?? "0") ?? 0)
+                    let y = CGFloat(NSNumberFormatter().numberFromString(square["framey"] ?? "0") ?? 0)
+                    let width = CGFloat(NSNumberFormatter().numberFromString(square["width"] ?? "0") ?? 0)
+                    let height = CGFloat(NSNumberFormatter().numberFromString(square["height"] ?? "0") ?? 0)
+                    let frame = CGRect(x: x, y: y, width: width, height: height)
+                    
+                    let image = UIImage.cuttingImage(self.imageArr[dataArr[index]["image"]!]!, withRect: frame)
+                    let squareFrame = self.addSquareForImageView(frame, imageView: self.imageViewsInScroll[index])
+                    
+                    let squareView = UIImageView()
+                    squareView.image = image
+                    squareView.contentMode = .ScaleToFill
+                    self.placeImageScrollView.addSubview(squareView)
+                    squareView <- [
+                        Size(squareFrame.size),
+                        Top(squareFrame.origin.y).to(self.imageViewsInScroll[index],.Top),
+                        Left(squareFrame.origin.x).to(self.imageViewsInScroll[index],.Left)
+                    ]
+                    
+                    squareView.addDashedBorder(squareFrame.size)
+                    
+//                    squareView.layer.borderColor = UIColor.redColor().CGColor
+//                    squareView.layer.borderWidth = CGFloat(1)
+                    
+                    squaresArr.append(squareView)
+                }
+            }
+            squaresAreInit = true
+        }else{
+            for view in squaresArr{
+                view.hidden = false
+            }
+        }
+        UIView.animateWithDuration(0.5,
+                                   delay: 0.0,
+                                   usingSpringWithDamping: 0.5,
+                                   initialSpringVelocity: 15.0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: { 
+                                    self.imageViewsInScroll.map { (imageView) -> Void in
+                                        imageView.alpha = 0.5
+                                    }
+            },
+                                   completion: nil
+        )
         
-        leftButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WorkBoardViewController.showLastPic(_:)))
-        leftButton?.enabled = false
-        
-        middleButton = UIBarButtonItem(title: "1/\(self.imageArr.count)", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        
-//        middleButton?.enabled = false
-        
-        rightButton = UIBarButtonItem(title: ">", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(WorkBoardViewController.showNextPic(_:)))
-
-        self.navigationItem.rightBarButtonItems = [rightButton!,middleButton!,leftButton!]
+    }
+    
+    func hideSquares(){
+        for view in squaresArr{
+            view.hidden = true
+        }
+        UIView.animateWithDuration(0.5,
+                                   delay: 0.0,
+                                   usingSpringWithDamping: 0.5,
+                                   initialSpringVelocity: 15.0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: {
+                                    self.imageViewsInScroll.map { (imageView) -> Void in
+                                        imageView.alpha = 1.0
+                                    }
+            },
+                                   completion: nil
+        )
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.placeImageScrollView.contentSize = CGSize(width: self.imageViewsInScroll[0].frame.width * CGFloat(dataArr.count), height: self.imageViewsInScroll[0].frame.height)
+    }
+    
+    func loadImagesIntoView(){
+        for index in 0..<dataArr.count{
+            let imageURL = dataArr[index]["image"]!
+            if let image = self.imageArr[imageURL] {
+                self.imageViewsInScroll[index].image = image
+            }else{
+            
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,54 +307,21 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         // Dispose of any resources that can be recreated.
     }
 
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return imageInScrollView
-    }
-    
-    func showLastPic(_:AnyObject?){
-        self.curShowingImage -= 1
-        self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
-        self.leftButton?.enabled = true
-        self.rightButton?.enabled = true
-        if curShowingImage == 0 {
-            self.leftButton?.enabled = false
-        }
-    }
-    func showNextPic(_:AnyObject?){
-        self.curShowingImage += 1
-        self.middleButton!.title = "\(curShowingImage+1)/\(self.imageArr.count)"
-        self.leftButton?.enabled = true
-        self.rightButton?.enabled = true
-        if curShowingImage == self.imageArr.count-1{
-            self.rightButton?.enabled = false
-        }
-    }
+
+
     
     func loadingImages (){
-        
         self.activityStart()
-        
         let manager = SDWebImageManager.sharedManager()
-        
         for i in 0..<self.dataArr.count{
             manager.downloadImageWithURL(NSURL(string:dataArr[i]["image"]!)!, options: SDWebImageOptions.RetryFailed, progress: { (_, _) in
-                
                 }, completed: { (image, err, cacheType, finished, imageURL) in
                     let url = imageURL.absoluteString
                     self.imageArr[url] = image
                     if(self.imageArr.count >= self.dataArr.count){
                         self.activityEnd()
-                        self.curShowingImage = 0
+                        self.loadImagesIntoView()
                     }
-            })
-        }
-        for i in 0..<self.dataArr.count{
-            fetchImage(NSURL(string:dataArr[i]["image"]!)!, res: { (image) in
-                self.imageArr[self.dataArr[i]["image"]!] = image
-                if self.imageArr.count >= self.dataArr.count{
-                    self.activityEnd()
-                    self.curShowingImage = 0
-                }
             })
         }
     }
@@ -142,178 +341,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         }
     }
     
-    func showImage(index:Int){
-        let url = dataArr[index]["image"]!
-        let image = imageArr[url]! as UIImage
-        imageInScrollView!.image = image
-        imageInScrollView?.frame = CGRect(origin: CGPoint.zero,size: image.size)
-        self.placeImageScrollView.contentSize = image.size
-        self.placeImageScrollView.bouncesZoom = true
-        
-        let boundsSize = self.placeImageScrollView.bounds
-        var frameToCenter = (imageInScrollView?.frame)!
-        if(frameToCenter.size.width < boundsSize.width){
-            frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
-        }else{
-            frameToCenter.origin.x = 0
-        }
-        if (frameToCenter.size.height < boundsSize.height){
-            frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
-        }else{
-            frameToCenter.origin.y = 0;
-        }
-        imageInScrollView!.frame = frameToCenter
-    }
-    
-    func triggerSquare(sender: UIButton) {
-        if cuttingView == nil{
-            initCutting()
-        }
-        if isCutting {
-            endCutting()
-            isCutting = false
-        }else{
-            startCutting()
-            isCutting = true
-        }
-    }
-    
-    private var pointViewLeftTop:UIView? = nil;
-    private var pointViewRightDown:UIView? = nil;
-    private var cuttingView : UIView? = nil;
-    private var isCutting = false;
-    
-    func initCutting(){
-        var size = CGSize.zero
-        size.width = min(self.view.frame.width,self.placeImageScrollView.contentSize.width)
-        size.width = min(self.view.frame.width,self.placeImageScrollView.contentSize.height)
-        
-        var frame = CGRect(origin: self.placeImageScrollView.frame.origin, size: size);
-        let banner = CGFloat(20)
-        frame.origin.x += banner
-        frame.origin.y += banner
-        frame.size.width -= 2*banner
-        frame.size.height = frame.size.width
-        let cutView = UIView(frame: frame)
-        cutView.userInteractionEnabled = false
-        cutView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
-        cutView.layer.borderWidth = CGFloat(3)
-        
-        let radius = CGFloat(8);
-        let dotFrame = CGRect(origin: CGPoint(x:frame.origin.x-radius+1.5,y:frame.origin.y-radius+1.5),size: CGSize(width: 2*radius,height: 2*radius))
-        
-        let pointView = UIView(frame:dotFrame)
-        pointView.backgroundColor = UIColor.whiteColor()
-        pointView.userInteractionEnabled = true
-        pointView.layer.cornerRadius = radius;
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(WorkBoardViewController.cutPanLeftTop(_:)))
-        pointView.addGestureRecognizer(panGesture)
-        
-        let dotFrame2 = CGRect(origin: CGPoint(x:frame.maxX-radius+1.5,y:frame.maxY-radius+1.5),size: CGSize(width: 2*radius,height: 2*radius))
-        let pointView2 = UIView(frame:dotFrame2)
-        pointView2.backgroundColor = UIColor.whiteColor()
-        pointView2.userInteractionEnabled = true
-        pointView2.layer.cornerRadius = radius;
-        let panGesture2 = UIPanGestureRecognizer(target: self, action: #selector(WorkBoardViewController.cutPanRightDown(_:)))
-        pointView2.addGestureRecognizer(panGesture2)
-        
-        
-        self.cuttingView = cutView
-        self.pointViewLeftTop = pointView
-        self.pointViewRightDown = pointView2
-    }
-    
-    func cutPanLeftTop(sender:UIPanGestureRecognizer){
-        switch sender.state {
-        case .Began:
-            break;
-        case .Changed:
-            fallthrough
-        case .Ended:
-            let offset = sender.translationInView(self.view)
-            self.pointViewLeftTop?.center = CGPoint(x: (self.pointViewLeftTop?.center.x)! + offset.x, y: (self.pointViewLeftTop?.center.y)! + offset.y)
-            self.cuttingView?.frame.origin = (self.pointViewLeftTop?.center)!
-            
-            self.pointViewRightDown?.center = CGPoint(x:self.cuttingView!.frame.maxX,y:self.cuttingView!.frame.maxY)
-            sender.setTranslation(CGPoint.zero, inView: self.view)
-        default:
-            break
-        }
-    }
-    
-    func cutPanRightDown(sender:UIPanGestureRecognizer){
-        switch sender.state {
-        case .Began:
-            break;
-        case .Changed:
-            fallthrough
-        case .Ended:
-            let offset = sender.translationInView(self.view)
-            self.pointViewRightDown?.center = CGPoint(x: (self.pointViewRightDown?.center.x)! + offset.x, y: (self.pointViewRightDown?.center.y)! + offset.y)
-            self.cuttingView?.frame.size =  CGSize(width: (self.pointViewRightDown?.center)!.x - (self.pointViewLeftTop?.center)!.x,height:(self.pointViewRightDown?.center)!.y - (self.pointViewLeftTop?.center)!.y)
-            self.pointViewLeftTop?.center = CGPoint(x:self.cuttingView!.frame.minX,y:self.cuttingView!.frame.minY)
-            sender.setTranslation(CGPoint.zero, inView: self.view)
-        default:
-            break
-        }
-    }
-    
-    func startCutting(){
-        self.view.addSubview(self.cuttingView!)
-        self.view.addSubview(self.pointViewLeftTop!)
-        self.view.addSubview(self.pointViewRightDown!)
-    }
-    func endCutting(){
-        print(self.imageInScrollView?.image?.size)
-        print(self.getSquareInfo())
-        self.cuttingView!.removeFromSuperview()
-        self.pointViewLeftTop!.removeFromSuperview()
-        self.pointViewRightDown!.removeFromSuperview()
-        goToAnotherView()
-    }
-    
-    func getSquareInfo()->(CGPoint,CGSize){
-        
-        let offset = self.placeImageScrollView.contentOffset
-        let scale = self.placeImageScrollView.zoomScale
-        let size = self.cuttingView!.frame.size
-        let imageO = self.imageInScrollView!.frame.origin
-        let origin = self.pointViewLeftTop!.center
-        
-        let startPoint = CGPoint(x:(origin.x-offset.x-imageO.x)/scale,y:(origin.y-offset.y-64-imageO.y)/scale)
-        let squareSize = CGSize(width:size.width/scale,height:size.height/scale)
-        
-        return (startPoint,squareSize)
-        
-//        self.pointViewLeftTop?.center - self.placeImageScrollView.frame.origin
-        
-//        self.pointViewRightDown
-        
-    }
-    func goToAnotherView(){
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Comment")
-        self.showViewController(vc!, sender: nil)
-    }
-    
-    // MARK: tabbar delegate
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        if let index = tabbar.items?.indexOf(item){
-            switch index {
-            case 0:
-                self.triggerSquare(UIButton())
-                
-                break
-            case 1:
-                let wbvc = self.storyboard?.instantiateViewControllerWithIdentifier("WorkBoardComments")
-                self.showViewController(wbvc!, sender: nil)
-                break
-            default:
-                return
-            }
-        }
-    }
     func activityStart(){
-        
         self.startActivityAnimating(self.view.bounds.size, message: "logining...", type: NVActivityIndicatorType.BallTrianglePath, color: UIColor.whiteColor(), padding: 125)
     }
     
@@ -321,4 +349,31 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,UITabBarDel
         self.stopActivityAnimating()
     }
     
+    func addSquareForImageView(square:CGRect,imageView:UIImageView) -> CGRect{
+        guard let imageSize = imageView.image?.size else {return CGRect.zero}
+        let viewSize = imageView.bounds
+        let squareFrame = square
+        var xScale = imageSize.width/viewSize.width
+        var yScale = imageSize.height/viewSize.height
+        var scale = CGFloat(0.0)
+        var xStart = CGFloat(0.0)
+        var yStart = CGFloat(0.0)
+        
+        if xScale > yScale {
+            scale = xScale
+            yStart = viewSize.height/2.0 - imageSize.height/(2*scale)
+        }else{
+            scale = yScale
+            xStart = viewSize.width/2.0 - imageSize.width/(2*scale)
+        }
+        
+        var newSquareFrame = square
+        newSquareFrame.origin.x = square.origin.x / scale + xStart
+        newSquareFrame.origin.y = square.origin.y / scale + yStart
+        newSquareFrame.size.width = square.size.width / scale
+        newSquareFrame.size.height = square.size.height / scale
+        
+        return newSquareFrame
+    }
+
 }

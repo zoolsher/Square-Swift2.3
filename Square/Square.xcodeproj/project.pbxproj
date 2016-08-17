@@ -22,6 +22,7 @@
 		C34384EA1D5D7D4D00248A33 /* ChatItemsDemoDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34384E91D5D7D4D00248A33 /* ChatItemsDemoDecorator.swift */; };
 		C34384ED1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34384EB1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift */; };
 		C34384EE1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34384EC1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib */; };
+		C347AB121D5F948400DC51DD /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347AB111D5F948400DC51DD /* HomeTabBarViewController.swift */; };
 		C35A18121D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift in Resources */ = {isa = PBXBuildFile; fileRef = C35A18111D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift */; };
 		C36D07EE1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07ED1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift */; };
 		C36D07F21D5AF4960095CAEE /* WorkBoardCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07F01D5AF4960095CAEE /* WorkBoardCommentTableViewCell.swift */; };
@@ -29,6 +30,7 @@
 		C36D07FB1D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07F91D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.swift */; };
 		C36D07FC1D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36D07FA1D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.xib */; };
 		C36D07FE1D5B657D0095CAEE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07FD1D5B657D0095CAEE /* ProfileViewController.swift */; };
+		C39B18FD1D6301C1004C7376 /* SquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39B18FC1D6301C1004C7376 /* SquareViewController.swift */; };
 		C39F29B61D56DF9000D832FB /* DINCOND-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = C3CAF8491D5639DB00A334D0 /* DINCOND-REGULAR.OTF */; };
 		C39F29B91D56E8FB00D832FB /* WorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F29B71D56E8FB00D832FB /* WorkTableViewCell.swift */; };
 		C39F29BA1D56E8FB00D832FB /* WorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F29B81D56E8FB00D832FB /* WorkTableViewCell.xib */; };
@@ -104,6 +106,7 @@
 		C34384E91D5D7D4D00248A33 /* ChatItemsDemoDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatItemsDemoDecorator.swift; sourceTree = "<group>"; };
 		C34384EB1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		C34384EC1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StackProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		C347AB111D5F948400DC51DD /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		C35A18111D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		C36D07ED1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkBoardCommentsViewController.swift; sourceTree = "<group>"; };
 		C36D07F01D5AF4960095CAEE /* WorkBoardCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkBoardCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		C36D07F91D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		C36D07FA1D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		C36D07FD1D5B657D0095CAEE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C39B18FC1D6301C1004C7376 /* SquareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareViewController.swift; sourceTree = "<group>"; };
 		C39F29B71D56E8FB00D832FB /* WorkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTableViewCell.swift; sourceTree = "<group>"; };
 		C39F29B81D56E8FB00D832FB /* WorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkTableViewCell.xib; sourceTree = "<group>"; };
 		C39F29BB1D56F64400D832FB /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +279,13 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		C36E6BD91D609F2C00866F8D /* Square */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Square;
+			sourceTree = "<group>";
+		};
 		C39F29BD1D56F6E200D832FB /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +409,7 @@
 		C3CAF84A1D563B1900A334D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C36E6BD91D609F2C00866F8D /* Square */,
 				C3C340A01D5F460A00F311FC /* Follower */,
 				C36D07F41D5B29690095CAEE /* Profile */,
 				C36D07EF1D5AF44F0095CAEE /* WorkBoard */,
@@ -443,6 +455,8 @@
 				C3E7E41E1D5C5A6600B94ABA /* ProfileEditViewController.swift */,
 				C3AB476F1D5CDAF500478CF5 /* ChatViewController.swift */,
 				C34212EA1D5EF8D20031838D /* FollowerViewController.swift */,
+				C347AB111D5F948400DC51DD /* HomeTabBarViewController.swift */,
+				C39B18FC1D6301C1004C7376 /* SquareViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -621,6 +635,7 @@
 				C3AB47701D5CDAF500478CF5 /* ChatViewController.swift in Sources */,
 				C34384EA1D5D7D4D00248A33 /* ChatItemsDemoDecorator.swift in Sources */,
 				C3CAF8521D563E1A00A334D0 /* HomeViewController.swift in Sources */,
+				C39B18FD1D6301C1004C7376 /* SquareViewController.swift in Sources */,
 				C3AB478D1D5CE34500478CF5 /* SlidingDatasSource.swift in Sources */,
 				C3AB47871D5CE31700478CF5 /* FakeMessageSender.swift in Sources */,
 				C3AB478B1D5CE33C00478CF5 /* FakeMessageFactory.swift in Sources */,
@@ -633,6 +648,7 @@
 				C3AB478F1D5CE6F100478CF5 /* BaseMessageHandler.swift in Sources */,
 				C3B0170C1D56563D00C22980 /* WorkViewController.swift in Sources */,
 				C36D07FB1D5B29F20095CAEE /* UserInfoProfileCollectionViewCell.swift in Sources */,
+				C347AB121D5F948400DC51DD /* HomeTabBarViewController.swift in Sources */,
 				C39F29CE1D574DEF00D832FB /* CommentTableViewCell.swift in Sources */,
 				C31F6DEC1D56377700CEABEA /* Square.xcdatamodeld in Sources */,
 				C3CAF8581D5648BE00A334D0 /* WorksOnHomeView.swift in Sources */,

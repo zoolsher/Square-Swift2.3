@@ -200,8 +200,6 @@ class LoginViewController: UIViewController,NVActivityIndicatorViewable {
     
     func initLogin()->UIView{
         
-        
-        
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
         blur.frame = self.view.frame;
         let containView = UIView(frame: self.view.frame)
@@ -211,10 +209,22 @@ class LoginViewController: UIViewController,NVActivityIndicatorViewable {
         loginView.backAction = {
             self.curShow = 0
         }
+        
+        if let username = NSUserDefaults().valueForKey("username") as? String{
+            if let password = NSUserDefaults().valueForKey("password") as? String{
+                loginView.userNameTextField.text = username
+                loginView.passwordTextField.text = password
+            }
+        }
+        
         loginView.goForwardAction = {
             self.activityStart()
             let u = User.shared;
             (u.userName,u.password) = loginView.getUserNameAndPassword()
+            
+            NSUserDefaults().setValue(u.userName, forKey: "username")
+            NSUserDefaults().setValue(u.password, forKey: "password")
+            
             u.login{(error,res,reason) in
                 self.activityEnd()
                 dispatch_async(dispatch_get_main_queue()){
@@ -233,7 +243,7 @@ class LoginViewController: UIViewController,NVActivityIndicatorViewable {
                             UIView.setAnimationDuration(0.4)
                             UIView.setAnimationCurve(.EaseInOut)
                             UIView.setAnimationTransition(.FlipFromRight, forView: self.view, cache: true)
-                            let home = self.storyboard?.instantiateViewControllerWithIdentifier("Home")
+                            let home = self.storyboard?.instantiateViewControllerWithIdentifier("HomeTabBarViewController")
                             self.presentViewController(home!, animated: true, completion: nil)
                             UIView.commitAnimations();
                         }

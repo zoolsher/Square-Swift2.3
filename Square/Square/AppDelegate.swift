@@ -18,6 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
+        UITabBar.appearance().tintColor = UIColor(red:0.50, green:0.12, blue:0.13, alpha:1.00)
+        
+        var attr = [String:AnyObject]()
+        attr[NSFontAttributeName] = UIFont(name: "DINCOND-Regular", size: 20.0)
+        UINavigationBar.appearance().titleTextAttributes = attr
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0,vertical: -60), forBarMetrics: UIBarMetrics.Default)
+        
+        attr[NSFontAttributeName] = UIFont(name: "DINCOND-Regular", size: 12.0)
+        UITabBarItem.appearance().setTitleTextAttributes(attr, forState: UIControlState.Normal)
         return true
     }
 

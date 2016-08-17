@@ -30,24 +30,36 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.segment.name1 = "Followers"
         self.segment.name2 = "Following"
         self.segment.labelAction = {(lastIndex,index) in
-            UIView.animateWithDuration(0.5,
-                delay: 0.0,
-                usingSpringWithDamping: 0.5,
-                initialSpringVelocity: 15.0,
-                options: UIViewAnimationOptions.CurveEaseInOut,
-                animations: {() -> Void in
-                    if index == 1 {
-                        self.followingView?.hidden = true
-                        self.followerView?.hidden = false
-                    }else{
-                        self.followingView?.hidden = false
-                        self.followerView?.hidden = true
-                    }
-                    var newFrame = self.containerView.frame
-                    newFrame.origin.x = (0-CGFloat(index)) * self.view.frame.width
-                    self.containerView.frame = newFrame
-                },
-                completion: nil);
+            
+            if index == 1 {
+                self.followingView?.hidden = true
+                self.followerView?.hidden = false
+            }else{
+                self.followingView?.hidden = false
+                self.followerView?.hidden = true
+            }
+            var newFrame = self.containerView.frame
+            newFrame.origin.x = (0-CGFloat(index)) * self.view.frame.width
+            self.containerView.frame = newFrame
+            
+//            UIView.animateWithDuration(0.5,
+//                delay: 0.0,
+//                usingSpringWithDamping: 0.5,
+//                initialSpringVelocity: 15.0,
+//                options: UIViewAnimationOptions.CurveEaseInOut,
+//                animations: {() -> Void in
+//                    if index == 1 {
+//                        self.followingView?.hidden = true
+//                        self.followerView?.hidden = false
+//                    }else{
+//                        self.followingView?.hidden = false
+//                        self.followerView?.hidden = true
+//                    }
+//                    var newFrame = self.containerView.frame
+//                    newFrame.origin.x = (0-CGFloat(index)) * self.view.frame.width
+//                    self.containerView.frame = newFrame
+//                },
+//                completion: nil);
         }
         followerData = [
             ["username":"zhang","intro":"from QingHua","avator":"http://touxiang.vipyl.com/user/webimg/2012118/2012118162813661.jpg"],
@@ -92,6 +104,9 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         followingView?.registerNib(followerViewCell2, forCellReuseIdentifier: reuse)
         followingView?.rowHeight = 75
         followingView?.backgroundColor = UIColor.blackColor()
+        
+        self.followingView?.hidden = true
+        self.followerView?.hidden = false
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -139,8 +154,9 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("Profile")
-        self.showViewController(profileVC!, sender: nil)
+        let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("Profile") as! ProfileViewController
+        profileVC.isUserSelf = false
+        self.showViewController(profileVC, sender: nil)
     }
     
     override func didReceiveMemoryWarning() {
