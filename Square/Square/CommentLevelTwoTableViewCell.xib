@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DINCOND-REGULAR.OTF">
+            <string>DINCond-Regular</string>
+            <string>DINCond-Regular</string>
+            <string>DINCond-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="_commentLevelTwoTableViewCell" rowHeight="120" id="KGk-i7-Jjw" customClass="CommentLevelTwoTableViewCell" customModule="Square" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WE-aU-AjJ">
+                        <rect key="frame" x="66" y="8" width="27.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gs-i5-AdN">
+                        <rect key="frame" x="66" y="35.5" width="27.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATA-hc-n4l">
+                        <rect key="frame" x="116" y="8" width="3" height="103.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="3" id="aQJ-OS-Y5d"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T49-6G-EeS">
+                        <rect key="frame" x="127" y="8" width="207" height="19.5"/>
+                        <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="5WE-aU-AjJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="58" id="1d1-KT-7RY"/>
+                    <constraint firstItem="ATA-hc-n4l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8gs-i5-AdN" secondAttribute="trailing" constant="8" symbolic="YES" id="9P7-Nd-Ta9"/>
+                    <constraint firstItem="T49-6G-EeS" firstAttribute="leading" secondItem="ATA-hc-n4l" secondAttribute="trailing" constant="8" symbolic="YES" id="ACQ-Pe-ZCi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T49-6G-EeS" secondAttribute="trailing" id="CWs-WN-ufs"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="T49-6G-EeS" secondAttribute="bottom" id="Hru-Ku-c9O"/>
+                    <constraint firstItem="5WE-aU-AjJ" firstAttribute="top" secondItem="ATA-hc-n4l" secondAttribute="top" id="I29-hL-O3s"/>
+                    <constraint firstItem="ATA-hc-n4l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5WE-aU-AjJ" secondAttribute="trailing" constant="8" symbolic="YES" id="OBU-ij-n9c"/>
+                    <constraint firstAttribute="topMargin" secondItem="ATA-hc-n4l" secondAttribute="top" id="OsC-ck-gmu"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="8gs-i5-AdN" secondAttribute="bottom" id="Rjy-Bb-R3H"/>
+                    <constraint firstItem="ATA-hc-n4l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="108" id="fip-QU-dph"/>
+                    <constraint firstItem="8gs-i5-AdN" firstAttribute="top" secondItem="5WE-aU-AjJ" secondAttribute="bottom" constant="8" symbolic="YES" id="iOv-OD-yiu"/>
+                    <constraint firstItem="8gs-i5-AdN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="58" id="l2y-bj-txz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ATA-hc-n4l" secondAttribute="bottom" id="p5n-JV-YIv"/>
+                    <constraint firstItem="T49-6G-EeS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qci-0f-3u3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="aligenerView" destination="ATA-hc-n4l" id="cb9-AM-uLE"/>
+                <outlet property="commentLabel" destination="T49-6G-EeS" id="SEu-of-ARm"/>
+                <outlet property="titleLabel" destination="8gs-i5-AdN" id="RFK-az-dTL"/>
+                <outlet property="userNameLabel" destination="5WE-aU-AjJ" id="uMR-N8-5Lz"/>
+            </connections>
+            <point key="canvasLocation" x="353" y="299"/>
+        </tableViewCell>
+    </objects>
+</document>

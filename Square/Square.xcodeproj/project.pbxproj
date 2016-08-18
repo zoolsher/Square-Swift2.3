@@ -63,6 +63,12 @@
 		C3AB478D1D5CE34500478CF5 /* SlidingDatasSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB478C1D5CE34500478CF5 /* SlidingDatasSource.swift */; };
 		C3AB478F1D5CE6F100478CF5 /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB478E1D5CE6F100478CF5 /* BaseMessageHandler.swift */; };
 		C3B0170C1D56563D00C22980 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0170B1D56563D00C22980 /* WorkViewController.swift */; };
+		C3B36BB51D6442720024126E /* CommentLevelOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B36BB31D6442720024126E /* CommentLevelOneTableViewCell.swift */; };
+		C3B36BB61D6442720024126E /* CommentLevelOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B36BB41D6442720024126E /* CommentLevelOneTableViewCell.xib */; };
+		C3B36BB91D64451C0024126E /* CommentLevelTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B36BB71D64451C0024126E /* CommentLevelTwoTableViewCell.swift */; };
+		C3B36BBA1D64451C0024126E /* CommentLevelTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B36BB81D64451C0024126E /* CommentLevelTwoTableViewCell.xib */; };
+		C3B36BBD1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B36BBB1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.swift */; };
+		C3B36BBE1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B36BBC1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib */; };
 		C3C340A31D5F467E00F311FC /* FolllowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C340A11D5F467E00F311FC /* FolllowerTableViewCell.swift */; };
 		C3C340A41D5F467E00F311FC /* FolllowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C340A21D5F467E00F311FC /* FolllowerTableViewCell.xib */; };
 		C3CAF8461D5638A500A334D0 /* BASE.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAF8451D5638A500A334D0 /* BASE.swift */; };
@@ -146,6 +152,12 @@
 		C3AB478C1D5CE34500478CF5 /* SlidingDatasSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingDatasSource.swift; sourceTree = "<group>"; };
 		C3AB478E1D5CE6F100478CF5 /* BaseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
 		C3B0170B1D56563D00C22980 /* WorkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
+		C3B36BB31D6442720024126E /* CommentLevelOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentLevelOneTableViewCell.swift; sourceTree = "<group>"; };
+		C3B36BB41D6442720024126E /* CommentLevelOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentLevelOneTableViewCell.xib; sourceTree = "<group>"; };
+		C3B36BB71D64451C0024126E /* CommentLevelTwoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentLevelTwoTableViewCell.swift; sourceTree = "<group>"; };
+		C3B36BB81D64451C0024126E /* CommentLevelTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentLevelTwoTableViewCell.xib; sourceTree = "<group>"; };
+		C3B36BBB1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentFooterLevelOneTableViewCell.swift; sourceTree = "<group>"; };
+		C3B36BBC1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentFooterLevelOneTableViewCell.xib; sourceTree = "<group>"; };
 		C3C340A11D5F467E00F311FC /* FolllowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolllowerTableViewCell.swift; sourceTree = "<group>"; };
 		C3C340A21D5F467E00F311FC /* FolllowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolllowerTableViewCell.xib; sourceTree = "<group>"; };
 		C3CAF8451D5638A500A334D0 /* BASE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BASE.swift; sourceTree = "<group>"; };
@@ -388,6 +400,19 @@
 			name = Work;
 			sourceTree = "<group>";
 		};
+		C3B36BB21D6442480024126E /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				C3B36BB31D6442720024126E /* CommentLevelOneTableViewCell.swift */,
+				C3B36BB41D6442720024126E /* CommentLevelOneTableViewCell.xib */,
+				C3B36BB71D64451C0024126E /* CommentLevelTwoTableViewCell.swift */,
+				C3B36BB81D64451C0024126E /* CommentLevelTwoTableViewCell.xib */,
+				C3B36BBB1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.swift */,
+				C3B36BBC1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
 		C3C340A01D5F460A00F311FC /* Follower */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +434,7 @@
 		C3CAF84A1D563B1900A334D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3B36BB21D6442480024126E /* Comment */,
 				C36E6BD91D609F2C00866F8D /* Square */,
 				C3C340A01D5F460A00F311FC /* Follower */,
 				C36D07F41D5B29690095CAEE /* Profile */,
@@ -496,7 +522,7 @@
 				TargetAttributes = {
 					C31F6DDF1D56377700CEABEA = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7CRFMVS96A;
+						DevelopmentTeam = QXPV6MQP3E;
 					};
 				};
 			};
@@ -529,6 +555,7 @@
 				C39F29BA1D56E8FB00D832FB /* WorkTableViewCell.xib in Resources */,
 				C31F6DF11D56377700CEABEA /* LaunchScreen.storyboard in Resources */,
 				C31F6DEE1D56377700CEABEA /* Assets.xcassets in Resources */,
+				C3B36BBE1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib in Resources */,
 				C31F6DE91D56377700CEABEA /* Main.storyboard in Resources */,
 				C3CAF85A1D5648D500A334D0 /* WorksOnHomeView.xib in Resources */,
 				C39F29C11D56F70600D832FB /* CollectionTableViewCell.xib in Resources */,
@@ -539,9 +566,11 @@
 				C36D07F31D5AF4960095CAEE /* WorkBoardCommentTableViewCell.xib in Resources */,
 				C3A918951D589AB300B119E3 /* DigInCollectionViewCell.xib in Resources */,
 				C3D94FC81D5C3E020076AA89 /* WorkProfileCollectionViewCell.xib in Resources */,
+				C3B36BB61D6442720024126E /* CommentLevelOneTableViewCell.xib in Resources */,
 				C39F29CF1D574DEF00D832FB /* CommentTableViewCell.xib in Resources */,
 				C39F29C81D571F3E00D832FB /* LoginView.xib in Resources */,
 				C3CAF84F1D563B5B00A334D0 /* CollectionOnHomeView.xib in Resources */,
+				C3B36BBA1D64451C0024126E /* CommentLevelTwoTableViewCell.xib in Resources */,
 				C35A18121D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift in Resources */,
 				C3C340A41D5F467E00F311FC /* FolllowerTableViewCell.xib in Resources */,
 			);
@@ -614,11 +643,13 @@
 				C39F29B91D56E8FB00D832FB /* WorkTableViewCell.swift in Sources */,
 				C3AB47811D5CE24500478CF5 /* DemoPhotoMessageHandler.swift in Sources */,
 				C3CAF8541D563E6200A334D0 /* SegmentControlView.swift in Sources */,
+				C3B36BBD1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.swift in Sources */,
 				C31F6DE41D56377700CEABEA /* AppDelegate.swift in Sources */,
 				C34384E81D5D75E600248A33 /* TimeSeparatorCollectionViewCell.swift in Sources */,
 				C3DDADB21D57837C00F482FA /* NotificationTableViewCell.swift in Sources */,
 				C3EBBFB01D5A31D3009DB7DE /* CommentViewController.swift in Sources */,
 				C3A918901D588B2800B119E3 /* DigInCollectionViewLayout.swift in Sources */,
+				C3B36BB51D6442720024126E /* CommentLevelOneTableViewCell.swift in Sources */,
 				C3A918941D589AB300B119E3 /* DigInCollectionViewCell.swift in Sources */,
 				C39F29CA1D574AAF00D832FB /* NotificationViewController.swift in Sources */,
 				C3E7E41F1D5C5A6600B94ABA /* ProfileEditViewController.swift in Sources */,
@@ -643,6 +674,7 @@
 				C36D07FE1D5B657D0095CAEE /* ProfileViewController.swift in Sources */,
 				C3D94FC31D5C32D10076AA89 /* HeaderProfileCollectionReusableView.swift in Sources */,
 				C3AB47831D5CE24500478CF5 /* DemoPhotoMessageViewModel.swift in Sources */,
+				C3B36BB91D64451C0024126E /* CommentLevelTwoTableViewCell.swift in Sources */,
 				C36D07EE1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift in Sources */,
 				C39F29C61D571F1B00D832FB /* LoginView.swift in Sources */,
 				C3AB478F1D5CE6F100478CF5 /* BaseMessageHandler.swift in Sources */,
@@ -776,7 +808,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zoolsher.Square;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.square;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -791,7 +823,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zoolsher.Square;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.square;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -118,6 +118,7 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         default:
             assert(false, "unhandle tableview")
         }
+        return 0;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,6 +130,7 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         default:
             assert(false)
         }
+        return 0;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -148,7 +150,13 @@ class FollowerViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.backgroundColor = cell.contentView.backgroundColor
             return cell
         default:
-            assert(false, "")
+            let cell = followingView?.dequeueReusableCellWithIdentifier(reuse) as! FolllowerTableViewCell
+            let data = followingData[indexPath.row]
+            cell.loadData(data["username"]!, intro: data["intro"]!)
+            cell.avator.sd_setImageWithURL(NSURL(string:data["avator"]!)!)
+            cell.backgroundColor = cell.contentView.backgroundColor
+            return cell
+
         }
     }
     

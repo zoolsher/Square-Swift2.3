@@ -10,7 +10,7 @@ import UIKit
 import EasyPeasy
 import SABlurImageView
 
-class SquareViewController: UIViewController {
+class SquareViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     private var tableView:UITableView? = nil
     private var imageView:SABlurImageView? = nil
@@ -59,7 +59,126 @@ class SquareViewController: UIViewController {
         clickView.addGestureRecognizer(ges)
         clickView.addGestureRecognizer(swipe)
         self.view.translatesAutoresizingMaskIntoConstraints = true
+        initTableView()
     }
+    
+    private let levelOneReuseId = "_commentLevelOneTableViewCell"
+    private let levelTwoReuseId = "_commentLevelTwoTableViewCell"
+    func initTableView(){
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+        self.tableView?.rowHeight = UITableViewAutomaticDimension
+        self.tableView?.estimatedRowHeight = 50
+        let commentViewLevelOneTableViewCell = UINib(nibName: "CommentLevelOneTableViewCell", bundle: nil)
+        self.tableView?.registerNib(commentViewLevelOneTableViewCell, forCellReuseIdentifier: levelOneReuseId)
+        let commentViewLevleTwoTableViewCell = UINib(nibName: "CommentLevelTwoTableViewCell", bundle: nil)
+        self.tableView?.registerNib(commentViewLevleTwoTableViewCell, forCellReuseIdentifier: levelTwoReuseId)
+        self.tableView?.separatorStyle = .None
+//        self.tableView?.alwaysBounceVertical = false
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.row{
+        case 0:
+            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelOneReuseId) as? CommentLevelOneTableViewCell
+            var str = "aab"
+            for _ in 0...50{
+                str+="abb"
+            }
+            cell!.commentLabel.text = str;
+            return cell!
+            break;
+        case 1:
+            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelTwoReuseId) as? CommentLevelTwoTableViewCell
+            var str = "aab"
+            for _ in 0...50{
+                str+="abb"
+            }
+            cell?.commentLabel.text = str
+            return cell!
+            break;
+        default:
+            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelTwoReuseId) as? CommentLevelTwoTableViewCell
+            var str = "aab"
+            for _ in 0...50{
+                str+="abb"
+            }
+            cell?.commentLabel.text = str
+            return cell!
+            break;
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+//        tableView?.userInteractionEnabled = false
+//        imageView?.userInteractionEnabled = false
+//        clickView?.userInteractionEnabled = true
+//        scrollView.resignFirstResponder()
+//        scrollview
+//        self.clickView?.becomeFirstResponder()
+//        scrollView.nextResponder()?.becomeFirstResponder()
+        if(scrollView.contentOffset.y < 0){
+            self.hideTheTable()
+        }
+    }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == 1{
+//            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelOneReuseId) as! CommentLevelOneTableViewCell
+//            let cellSize = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+//            let textSize = cell.commentTextView.sizeThatFits(CGSize(width: cell.commentTextView.frame.width,height:CGFloat.max))
+//            print(textSize.height)
+//            if textSize.height > 50{
+//                return cellSize.height - 50 + textSize.height + 8
+//            }else{
+//                return cellSize.height + 1
+//            }
+//        }else{
+//            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelTwoReuseId) as! CommentLevelTwoTableViewCell
+//            //let cellSize = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+//            let textSize = cell.commentTextView.sizeThatFits(CGSize(width: cell.commentTextView.frame.width,height:CGFloat.max))
+//            if textSize.height > 50{
+//                return textSize.height + 1 + 16
+//            }else{
+//                return 51
+//            }
+//            
+//        }
+//
+//    }
+//    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == 1{
+//            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelOneReuseId) as! CommentLevelOneTableViewCell
+//            let cellSize = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+//            let textSize = cell.commentTextView.sizeThatFits(CGSize(width: cell.commentTextView.frame.width,height:CGFloat.max))
+//            print(textSize.height)
+//            if textSize.height > 50{
+//                return cellSize.height - 50 + textSize.height + 8
+//            }else{
+//                return cellSize.height + 1
+//            }
+//        }else{
+//            let cell = self.tableView?.dequeueReusableCellWithIdentifier(levelTwoReuseId) as! CommentLevelTwoTableViewCell
+//            //let cellSize = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+//            let textSize = cell.commentTextView.sizeThatFits(CGSize(width: cell.commentTextView.frame.width,height:CGFloat.max))
+//            if textSize.height > 50{
+//                return textSize.height + 1 + 16
+//            }else{
+//                return 51
+//            }
+//        
+//        }
+//    }
     
     override func viewDidAppear(animated: Bool) {
     }
@@ -172,6 +291,8 @@ class SquareViewController: UIViewController {
     
     func hideTheTable(time:NSTimeInterval = 0.5){
         isTableViewShowing = false
+        tableView?.userInteractionEnabled = false
+        imageView?.userInteractionEnabled = false
         guard let imageView = self.imageView else {return}
         guard let tableView = self.tableView else {return}
         
