@@ -75,7 +75,7 @@ class FakeMessageFactory {
         let maxText = self.demoTexts.randomItem()
         let length: Int = 10 + Int(arc4random_uniform(300))
         let text = "\(maxText.substringToIndex(maxText.startIndex.advancedBy(length))) incoming:\(incomingText), #:\(uid)"
-        return Square.createTextMessageModel(uid, text: text, isIncoming: isIncoming)
+        return Squarance.createTextMessageModel(uid, text: text, isIncoming: isIncoming)
     }
 
     class func createPhotoMessageModel(uid: String, isIncoming: Bool) -> DemoPhotoMessageModel {
@@ -102,7 +102,7 @@ class FakeMessageFactory {
         default:
             imageName = "pic-test-3"
         }
-        return Square.createPhotoMessageModel(uid, image: UIImage(named: imageName)!, size: imageSize, isIncoming: isIncoming)
+        return Squarance.createPhotoMessageModel(uid, image: UIImage(named: imageName)!, size: imageSize, isIncoming: isIncoming)
     }
 }
 

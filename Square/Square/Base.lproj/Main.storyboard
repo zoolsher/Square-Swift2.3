@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,7 +19,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -78,7 +78,7 @@
         <!--Work-->
         <scene sceneID="hns-To-kU9">
             <objects>
-                <viewController title="Work" id="5Kl-BE-jsa" customClass="WorkViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Work" id="5Kl-BE-jsa" customClass="WorkViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kId-dW-BDo"/>
                         <viewControllerLayoutGuide type="bottom" id="DOQ-5r-5fE"/>
@@ -111,7 +111,7 @@
         <!--DigIn-->
         <scene sceneID="jWd-gG-aos">
             <objects>
-                <viewController title="DigIn" id="bBj-mN-B2g" customClass="DigInViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="DigIn" id="bBj-mN-B2g" customClass="DigInViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nF4-32-K5J"/>
                         <viewControllerLayoutGuide type="bottom" id="zq5-Ab-oL9"/>
@@ -203,7 +203,7 @@
         <!--Notification-->
         <scene sceneID="7i8-rT-hbr">
             <objects>
-                <viewController title="Notification" automaticallyAdjustsScrollViewInsets="NO" id="Z1T-Ck-X5i" customClass="NotificationViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Notification" automaticallyAdjustsScrollViewInsets="NO" id="Z1T-Ck-X5i" customClass="NotificationViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cO8-Fs-djN"/>
                         <viewControllerLayoutGuide type="bottom" id="MNN-cs-Vwp"/>
@@ -212,7 +212,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IL1-TQ-VqM" customClass="SegmentControlView" customModule="Square" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IL1-TQ-VqM" customClass="SegmentControlView" customModule="Squarance" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -240,7 +240,7 @@
         <!--Chat View Controller-->
         <scene sceneID="br8-Z0-p5M">
             <objects>
-                <viewController id="TSX-4M-LER" customClass="ChatViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TSX-4M-LER" customClass="ChatViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YtD-YN-bJt"/>
                         <viewControllerLayoutGuide type="bottom" id="dVg-0Q-hi9"/>
@@ -258,7 +258,7 @@
         <!--Collection-->
         <scene sceneID="Sbc-Uc-6xg">
             <objects>
-                <viewController title="Collection" id="r6j-KD-XOJ" customClass="CollectionViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Collection" id="r6j-KD-XOJ" customClass="CollectionViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQg-VT-hHM"/>
                         <viewControllerLayoutGuide type="bottom" id="ko8-JP-LcJ"/>
@@ -292,7 +292,7 @@
         <!--Home-->
         <scene sceneID="aLu-R0-tkX">
             <objects>
-                <viewController title="Home" id="YrG-th-fzp" customClass="HomeViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="YrG-th-fzp" customClass="HomeViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZQg-i6-hby"/>
                         <viewControllerLayoutGuide type="bottom" id="kiA-pe-Vmi"/>
@@ -301,7 +301,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2X-KN-AIC" customClass="SegmentControlView" customModule="Square" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2X-KN-AIC" customClass="SegmentControlView" customModule="Squarance" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="300" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -422,7 +422,7 @@
         <!--Square-->
         <scene sceneID="Fju-4v-GpO">
             <objects>
-                <viewController title="Square" id="ZrX-Hc-khj" customClass="SquareViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Square" id="ZrX-Hc-khj" customClass="SquareViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gaV-46-HvM"/>
                         <viewControllerLayoutGuide type="bottom" id="JzP-mp-P4A"/>
@@ -442,7 +442,7 @@
         <!--Comments-->
         <scene sceneID="IyL-h3-PK4">
             <objects>
-                <viewController storyboardIdentifier="WorkBoardComments" title="Comments" id="6Xw-hw-fKN" customClass="WorkBoardCommentsViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkBoardComments" title="Comments" id="6Xw-hw-fKN" customClass="WorkBoardCommentsViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eQQ-rg-P2g"/>
                         <viewControllerLayoutGuide type="bottom" id="fPj-Hs-TVd"/>
@@ -503,7 +503,7 @@
         <!--Home Tab Bar View Controller-->
         <scene sceneID="fAN-JU-r30">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTabBarViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MQ6-pj-zSa" customClass="HomeTabBarViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBarViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MQ6-pj-zSa" customClass="HomeTabBarViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="Aej-ze-vVJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -526,7 +526,7 @@
         <!--Comment View Controller-->
         <scene sceneID="Z4V-Qn-AWn">
             <objects>
-                <viewController storyboardIdentifier="Comment" id="kAg-zS-CJa" customClass="CommentViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Comment" id="kAg-zS-CJa" customClass="CommentViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bgQ-Aa-7cf"/>
                         <viewControllerLayoutGuide type="bottom" id="fXa-HB-UlH"/>
@@ -577,7 +577,7 @@
         <!--画板-->
         <scene sceneID="9KU-Tg-JUb">
             <objects>
-                <viewController storyboardIdentifier="WorkBoard" title="画板" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="uCX-tc-8oQ" customClass="WorkBoardViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkBoard" title="画板" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="uCX-tc-8oQ" customClass="WorkBoardViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EFR-9h-v8J"/>
                         <viewControllerLayoutGuide type="bottom" id="7Ql-V1-HdI"/>
@@ -626,7 +626,7 @@
         <!--Follower View Controller-->
         <scene sceneID="oHh-iJ-aaE">
             <objects>
-                <viewController id="sQw-5n-7n0" customClass="FollowerViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sQw-5n-7n0" customClass="FollowerViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qH2-78-WCg"/>
                         <viewControllerLayoutGuide type="bottom" id="8cv-rM-HSL"/>
@@ -635,7 +635,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-Xf-KqA" customClass="SegmentControlView" customModule="Square" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-Xf-KqA" customClass="SegmentControlView" customModule="Squarance" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="900" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -675,7 +675,7 @@
         <!--Profile-->
         <scene sceneID="kVb-Uz-MPH">
             <objects>
-                <viewController storyboardIdentifier="Profile" title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="QUE-UM-gIN" customClass="ProfileViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="QUE-UM-gIN" customClass="ProfileViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VyQ-sX-Vdy"/>
                         <viewControllerLayoutGuide type="bottom" id="yUV-f0-lPc"/>
@@ -728,7 +728,7 @@
         <!--Profile Edit View Controller-->
         <scene sceneID="O3d-rl-hMY">
             <objects>
-                <viewController id="ldx-Vp-Q82" customClass="ProfileEditViewController" customModule="Square" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ldx-Vp-Q82" customClass="ProfileEditViewController" customModule="Squarance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zAb-AC-Gd1"/>
                         <viewControllerLayoutGuide type="bottom" id="a6v-tL-Wlt"/>
