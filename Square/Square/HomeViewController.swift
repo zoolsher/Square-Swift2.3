@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-
+import EasyPeasy
 
 
 class HomeViewController: UIViewController {
@@ -18,10 +18,6 @@ class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var segment: SegmentControlView!
-    
-    
-    
-    
     
     @IBOutlet weak var imageView1: UIImageView!
     
@@ -221,6 +217,7 @@ class HomeViewController: UIViewController {
         self.imageView1.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
         self.imageView2.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
         self.imageView3.af_setImageWithURL(NSURL(string: "http://att.bbs.duowan.com/forum/201403/24/1543112eltwpai1452ve40.jpg")!)
+
     }
     
     func imageTapHandler(sender:UITapGestureRecognizer){
@@ -267,7 +264,9 @@ class HomeViewController: UIViewController {
                 CGRect(x: 0, y: startY + 2*nh, width: w, height: sh)
             ]
         ]
-        updateImagePos(1)
+        for i in 0...2{
+            self.imageViewArr?[i].frame = self.imageViewFrameArr[1][i]
+        }
         return ;
     }
     

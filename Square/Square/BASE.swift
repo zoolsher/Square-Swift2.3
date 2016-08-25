@@ -9,5 +9,5 @@
 import Foundation
 
 class BASE{
-    static let LOC = "http://114.55.30.164:8888"
+    static let LOC = "http://www.squarance.com/api"
 }
