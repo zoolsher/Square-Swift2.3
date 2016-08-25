@@ -121,7 +121,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,NVActivityI
             ]
         ]
     
-    public var workId:String = "10"
+    internal var workId:String = "10"
     
     private var imageArr:[String:UIImage] = [String:UIImage]()
     
@@ -352,9 +352,9 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,NVActivityI
     func addSquareForImageView(square:CGRect,imageView:UIImageView) -> CGRect{
         guard let imageSize = imageView.image?.size else {return CGRect.zero}
         let viewSize = imageView.bounds
-        let squareFrame = square
-        var xScale = imageSize.width/viewSize.width
-        var yScale = imageSize.height/viewSize.height
+        _ = square
+        let xScale = imageSize.width/viewSize.width
+        let yScale = imageSize.height/viewSize.height
         var scale = CGFloat(0.0)
         var xStart = CGFloat(0.0)
         var yStart = CGFloat(0.0)

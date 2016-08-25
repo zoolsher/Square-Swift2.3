@@ -23,7 +23,6 @@
 		C34384ED1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34384EB1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift */; };
 		C34384EE1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34384EC1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib */; };
 		C347AB121D5F948400DC51DD /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347AB111D5F948400DC51DD /* HomeTabBarViewController.swift */; };
-		C35A18121D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift in Resources */ = {isa = PBXBuildFile; fileRef = C35A18111D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift */; };
 		C36D07EE1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07ED1D5AF37E0095CAEE /* WorkBoardCommentsViewController.swift */; };
 		C36D07F21D5AF4960095CAEE /* WorkBoardCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D07F01D5AF4960095CAEE /* WorkBoardCommentTableViewCell.swift */; };
 		C36D07F31D5AF4960095CAEE /* WorkBoardCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36D07F11D5AF4960095CAEE /* WorkBoardCommentTableViewCell.xib */; };
@@ -95,7 +94,7 @@
 /* Begin PBXFileReference section */
 		95E8E810F98C4386EB584FD2 /* Pods-Square.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Square/Pods-Square.debug.xcconfig"; sourceTree = "<group>"; };
 		B365ED65503C051D98DBDA1F /* Pods-Square.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Square/Pods-Square.release.xcconfig"; sourceTree = "<group>"; };
-		C31F6DE01D56377700CEABEA /* Square.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Square.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C31F6DE01D56377700CEABEA /* Squarance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squarance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31F6DE31D56377700CEABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C31F6DE81D56377700CEABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C31F6DEB1D56377700CEABEA /* Square.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Square.xcdatamodel; sourceTree = "<group>"; };
@@ -214,7 +213,7 @@
 		C31F6DD71D56377700CEABEA = {
 			isa = PBXGroup;
 			children = (
-				C31F6DE21D56377700CEABEA /* Square */,
+				C31F6DE21D56377700CEABEA /* Squarance */,
 				C31F6DE11D56377700CEABEA /* Products */,
 				B4D065E9C58E608A63A39D8A /* Pods */,
 				7ED339D0EAC9EF6DC698EDAB /* Frameworks */,
@@ -224,12 +223,12 @@
 		C31F6DE11D56377700CEABEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C31F6DE01D56377700CEABEA /* Square.app */,
+				C31F6DE01D56377700CEABEA /* Squarance.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C31F6DE21D56377700CEABEA /* Square */ = {
+		C31F6DE21D56377700CEABEA /* Squarance */ = {
 			isa = PBXGroup;
 			children = (
 				C3AB47711D5CDED100478CF5 /* Chat */,
@@ -244,6 +243,7 @@
 				C31F6DF21D56377700CEABEA /* Info.plist */,
 				C31F6DEA1D56377700CEABEA /* Square.xcdatamodeld */,
 			);
+			name = Squarance;
 			path = Square;
 			sourceTree = "<group>";
 		};
@@ -490,9 +490,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C31F6DDF1D56377700CEABEA /* Square */ = {
+		C31F6DDF1D56377700CEABEA /* Squarance */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C31F6DF51D56377700CEABEA /* Build configuration list for PBXNativeTarget "Square" */;
+			buildConfigurationList = C31F6DF51D56377700CEABEA /* Build configuration list for PBXNativeTarget "Squarance" */;
 			buildPhases = (
 				9CC6ED6485FCA7F9788B6CDE /* [CP] Check Pods Manifest.lock */,
 				C31F6DDC1D56377700CEABEA /* Sources */,
@@ -505,9 +505,9 @@
 			);
 			dependencies = (
 			);
-			name = Square;
+			name = Squarance;
 			productName = Square;
-			productReference = C31F6DE01D56377700CEABEA /* Square.app */;
+			productReference = C31F6DE01D56377700CEABEA /* Squarance.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -526,7 +526,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C31F6DDB1D56377700CEABEA /* Build configuration list for PBXProject "Square" */;
+			buildConfigurationList = C31F6DDB1D56377700CEABEA /* Build configuration list for PBXProject "Squarance" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -539,7 +539,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C31F6DDF1D56377700CEABEA /* Square */,
+				C31F6DDF1D56377700CEABEA /* Squarance */,
 			);
 		};
 /* End PBXProject section */
@@ -571,7 +571,6 @@
 				C39F29C81D571F3E00D832FB /* LoginView.xib in Resources */,
 				C3CAF84F1D563B5B00A334D0 /* CollectionOnHomeView.xib in Resources */,
 				C3B36BBA1D64451C0024126E /* CommentLevelTwoTableViewCell.xib in Resources */,
-				C35A18121D58CA3000B5ECD5 /* CHTCollectionViewWaterfallLayout.swift in Resources */,
 				C3C340A41D5F467E00F311FC /* FolllowerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,13 +803,14 @@
 			baseConfigurationReference = 95E8E810F98C4386EB584FD2 /* Pods-Square.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.square;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.squarance;
+				PRODUCT_NAME = Squarance;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -819,20 +819,21 @@
 			baseConfigurationReference = B365ED65503C051D98DBDA1F /* Pods-Square.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				INFOPLIST_FILE = Square/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.square;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.squarance;
+				PRODUCT_NAME = Squarance;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C31F6DDB1D56377700CEABEA /* Build configuration list for PBXProject "Square" */ = {
+		C31F6DDB1D56377700CEABEA /* Build configuration list for PBXProject "Squarance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C31F6DF31D56377700CEABEA /* Debug */,
@@ -841,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C31F6DF51D56377700CEABEA /* Build configuration list for PBXNativeTarget "Square" */ = {
+		C31F6DF51D56377700CEABEA /* Build configuration list for PBXNativeTarget "Squarance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C31F6DF61D56377700CEABEA /* Debug */,

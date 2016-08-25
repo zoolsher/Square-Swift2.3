@@ -310,6 +310,7 @@
 		B685995C7DEC3DCCA47F360EA4E6E3E2 /* DummyChatItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB56C5EB1B02AC1F9EFEEBD0BCC5598 /* DummyChatItemPresenter.swift */; };
 		B76322B76C1085EA2EF80DF7A7A92417 /* NVActivityIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F19263C0169E39B0084999FAF8261DEC /* NVActivityIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B7865DAC2C6E67A794E6A1EA4275E401 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7BB47C41B6163FA465ACE42ABB52A /* Constant.swift */; };
+		B79DC3321D6C056200A02D40 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6906B535BA67F89E6BBA48AEE05ED0F2 /* Alamofire.framework */; };
 		B7DB4B868834CC37618900C0FEDF3F1C /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D354D3F0E01B0A31C5A4FD5ED87A8 /* SwitchRow.swift */; };
 		B850341D6210AC5C41F042CB552895DD /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E78682CA0271D1F2010BB87F0C5A9 /* NVActivityIndicatorAnimationBallRotateChase.swift */; };
 		B962ED1B0D4466FE5AFD475EE58D4058 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65560ACB4A087BB2CFC2B2F11979616 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
@@ -403,7 +404,6 @@
 		E994C7B3AD81F25A03886A4E6AA327C0 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E372CED3544834E1DA23B7433CC157 /* Row.swift */; };
 		EA5FFB3B055807E63CAEC99EC25424A0 /* PhotosInputCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE639DB614B7EE5FA2E2F69D55CB087 /* PhotosInputCameraPicker.swift */; };
 		EABFAD1C3CD3FD47B9E8DD0C5EE5D7C0 /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B2CF232B165CE56F151F5723BFD90AFC /* TOActivityCroppedImageProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB7D1260D31A6F49E3E273CE870AA3DD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6906B535BA67F89E6BBA48AEE05ED0F2 /* Alamofire.framework */; };
 		EBFB0893FA5AC2C7EF2A1160F267CF6F /* ChatInputBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874B8409FE3084A6CAEADA0C09B90BB /* ChatInputBarPresenter.swift */; };
 		EC255AA9884CAD1299D2EB24CDBDF952 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 295A74F11F92841E8DCDFC77C1B3FE05 /* fr.lproj */; };
 		ECE1A6362EB7B43DC0779C063AC51592 /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5471DCCD87A4338CFBD203A12084C1CB /* ja.lproj */; };
@@ -1139,8 +1139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7D1260D31A6F49E3E273CE870AA3DD /* Alamofire.framework in Frameworks */,
 				FAA1017FCE0F8B1C6E6BACCCD05B4A6A /* Foundation.framework in Frameworks */,
+				B79DC3321D6C056200A02D40 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

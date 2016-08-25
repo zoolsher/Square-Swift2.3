@@ -154,10 +154,10 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
         self.allItemAttributes.removeAllObjects()
         self.sectionItemAttributes.removeAllObjects()
         
-        for var section = 0; section < numberOfSections; ++section{
+        for section in 0 ..< numberOfSections{
             let columnCount = self.columnCountForSection(section)
             let sectionColumnHeights = NSMutableArray(capacity: columnCount)
-            for var idx = 0; idx < columnCount; idx++ {
+            for var idx = 0; idx < columnCount; idx += 1 {
                 sectionColumnHeights.addObject(idx)
             }
             self.columnHeights.addObject(sectionColumnHeights)
@@ -166,7 +166,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
         var top : CGFloat = 0.0
         var attributes = UICollectionViewLayoutAttributes()
         
-        for var section = 0; section < numberOfSections; ++section{
+        for var section = 0; section < numberOfSections; section += 1{
             /*
              * 1. Get section-specific metrics (minimumInteritemSpacing, sectionInset)
              */
@@ -208,7 +208,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
                 top = CGRectGetMaxY(attributes.frame)
             }
             top += sectionInsets.top
-            for var idx = 0; idx < columnCount; idx++ {
+            for idx in 0 ..< columnCount {
                 if let sectionColumnHeights = self.columnHeights[section] as? NSMutableArray {
                     sectionColumnHeights[idx]=top
                 }
@@ -221,7 +221,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
             let itemAttributes = NSMutableArray(capacity: itemCount)
             
             // Item will be put into shortest column.
-            for var idx = 0; idx < itemCount; idx++ {
+            for var idx = 0; idx < itemCount; idx += 1 {
                 let indexPath = NSIndexPath(forItem: idx, inSection: section)
                 
                 let columnIndex = self.nextColumnIndexForItem(idx, section: section)
@@ -265,7 +265,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
                 top = CGRectGetMaxY(attributes.frame)
             }
             
-            for var idx = 0; idx < columnCount; idx++ {
+            for var idx = 0; idx < columnCount; idx += 1 {
                 if let sectionColumnHeights = self.columnHeights[section] as? NSMutableArray {
                     sectionColumnHeights[idx]=top
                 }
@@ -279,7 +279,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
             idx = min(idx + unionSize, itemCounts) - 1
             let rect2 = self.allItemAttributes.objectAtIndex(idx).frame as CGRect
             self.unionRects.addObject(NSValue(CGRect:CGRectUnion(rect1,rect2)))
-            idx++
+            idx += 1
         }
     }
     
@@ -320,7 +320,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
         var begin = 0, end = self.unionRects.count
         let attrs = NSMutableArray()
         
-        for var i = 0; i < end; i++ {
+        for var i = 0; i < end; i += 1 {
             if let unionRect = self.unionRects.objectAtIndex(i) as? NSValue {
                 if CGRectIntersectsRect(rect, unionRect.CGRectValue()) {
                     begin = i * unionSize;
@@ -328,7 +328,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
                 }
             }
         }
-        for var i = self.unionRects.count - 1; i>=0; i-- {
+        for var i = self.unionRects.count - 1; i>=0; i -= 1 {
             if let unionRect = self.unionRects.objectAtIndex(i) as? NSValue {
                 if CGRectIntersectsRect(rect, unionRect.CGRectValue()){
                     end = min((i+1)*unionSize,self.allItemAttributes.count)
@@ -336,7 +336,7 @@ class DigInCollectionViewLayout : UICollectionViewLayout{
                 }
             }
         }
-        for var i = begin; i < end; i++ {
+        for var i = begin; i < end; i += 1 {
             let attr = self.allItemAttributes.objectAtIndex(i) as! UICollectionViewLayoutAttributes
             if CGRectIntersectsRect(rect, attr.frame) {
                 attrs.addObject(attr)
