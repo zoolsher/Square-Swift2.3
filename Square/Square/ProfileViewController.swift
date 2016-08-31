@@ -237,6 +237,13 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func renderWorkCell(indexPath:NSIndexPath)->UICollectionViewCell{
+        if indexPath.row == 0 {
+            let workCell = collectionView.dequeueReusableCellWithReuseIdentifier(workReuse, forIndexPath: indexPath) as! WorkProfileCollectionViewCell
+            workCell.workImageView.image = UIImage(named: "plus")
+            workCell.workImageView.contentMode = .ScaleAspectFit
+            workCell.backgroundColor = UIColor.whiteColor()
+            return workCell
+        }
         let workCell = collectionView.dequeueReusableCellWithReuseIdentifier(workReuse, forIndexPath: indexPath) as! WorkProfileCollectionViewCell
         let data = workData[indexPath.row]
         workCell.loadData(data["heart"]!, comment: data["comment"]!)
@@ -324,6 +331,11 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         case 0:
             return
         case 1:
+            if indexPath.row == 0 {
+                let createWorkFormViewController = self.storyboard?.instantiateViewControllerWithIdentifier("createWorkFormViewController") as! CreateWorkFormViewController;
+                self.showViewController(createWorkFormViewController, sender: nil)
+                return 
+            }
             let VC = self.storyboard?.instantiateViewControllerWithIdentifier("WorkBoard")
             VC?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(VC!, animated: true)

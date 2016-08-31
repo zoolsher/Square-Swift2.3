@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1CEA2E0478E64114E98A94D /* Pods_Squarance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911C491BC8D21AA1501832AA /* Pods_Squarance.framework */; };
 		C31F6DE41D56377700CEABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F6DE31D56377700CEABEA /* AppDelegate.swift */; };
 		C31F6DE91D56377700CEABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31F6DE71D56377700CEABEA /* Main.storyboard */; };
 		C31F6DEC1D56377700CEABEA /* Square.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C31F6DEA1D56377700CEABEA /* Square.xcdatamodeld */; };
@@ -80,6 +81,8 @@
 		C3CAF8581D5648BE00A334D0 /* WorksOnHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAF8571D5648BE00A334D0 /* WorksOnHomeView.swift */; };
 		C3CAF85A1D5648D500A334D0 /* WorksOnHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CAF8591D5648D500A334D0 /* WorksOnHomeView.xib */; };
 		C3D09B4D1D59B553002820BA /* WorkBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D09B4C1D59B553002820BA /* WorkBoardViewController.swift */; };
+		C3D6132E1D76AE370065BC0E /* CreateWorkFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D6132D1D76AE370065BC0E /* CreateWorkFormViewController.swift */; };
+		C3D613301D76CC640065BC0E /* CreateWorkSelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D6132F1D76CC640065BC0E /* CreateWorkSelectPhotoViewController.swift */; };
 		C3D94FC31D5C32D10076AA89 /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D94FC11D5C32D10076AA89 /* HeaderProfileCollectionReusableView.swift */; };
 		C3D94FC41D5C32D10076AA89 /* HeaderProfileCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D94FC21D5C32D10076AA89 /* HeaderProfileCollectionReusableView.xib */; };
 		C3D94FC71D5C3E020076AA89 /* WorkProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D94FC51D5C3E020076AA89 /* WorkProfileCollectionViewCell.swift */; };
@@ -88,12 +91,11 @@
 		C3DDADB31D57837C00F482FA /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3DDADB11D57837C00F482FA /* NotificationTableViewCell.xib */; };
 		C3E7E41F1D5C5A6600B94ABA /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E7E41E1D5C5A6600B94ABA /* ProfileEditViewController.swift */; };
 		C3EBBFB01D5A31D3009DB7DE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EBBFAF1D5A31D3009DB7DE /* CommentViewController.swift */; };
-		CB05AA61D337DA98C23D949D /* Pods_Square.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89B89B53BA82A3E79520663 /* Pods_Square.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		95E8E810F98C4386EB584FD2 /* Pods-Square.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Square/Pods-Square.debug.xcconfig"; sourceTree = "<group>"; };
-		B365ED65503C051D98DBDA1F /* Pods-Square.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Square/Pods-Square.release.xcconfig"; sourceTree = "<group>"; };
+		060A9E3E2BD57E62D9A7ECBC /* Pods-Squarance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squarance.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Squarance/Pods-Squarance.debug.xcconfig"; sourceTree = "<group>"; };
+		911C491BC8D21AA1501832AA /* Pods_Squarance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squarance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31F6DE01D56377700CEABEA /* Squarance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squarance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31F6DE31D56377700CEABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C31F6DE81D56377700CEABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,6 +172,8 @@
 		C3CAF8571D5648BE00A334D0 /* WorksOnHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorksOnHomeView.swift; sourceTree = "<group>"; };
 		C3CAF8591D5648D500A334D0 /* WorksOnHomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorksOnHomeView.xib; sourceTree = "<group>"; };
 		C3D09B4C1D59B553002820BA /* WorkBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkBoardViewController.swift; sourceTree = "<group>"; };
+		C3D6132D1D76AE370065BC0E /* CreateWorkFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkFormViewController.swift; sourceTree = "<group>"; };
+		C3D6132F1D76CC640065BC0E /* CreateWorkSelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkSelectPhotoViewController.swift; sourceTree = "<group>"; };
 		C3D94FC11D5C32D10076AA89 /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		C3D94FC21D5C32D10076AA89 /* HeaderProfileCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderProfileCollectionReusableView.xib; sourceTree = "<group>"; };
 		C3D94FC51D5C3E020076AA89 /* WorkProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -178,7 +182,7 @@
 		C3DDADB11D57837C00F482FA /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		C3E7E41E1D5C5A6600B94ABA /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		C3EBBFAF1D5A31D3009DB7DE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
-		E89B89B53BA82A3E79520663 /* Pods_Square.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2DE8B01BF22885B52A88847 /* Pods-Squarance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squarance.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Squarance/Pods-Squarance.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB05AA61D337DA98C23D949D /* Pods_Square.framework in Frameworks */,
+				A1CEA2E0478E64114E98A94D /* Pods_Squarance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +200,7 @@
 		7ED339D0EAC9EF6DC698EDAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E89B89B53BA82A3E79520663 /* Pods_Square.framework */,
+				911C491BC8D21AA1501832AA /* Pods_Squarance.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,8 +208,8 @@
 		B4D065E9C58E608A63A39D8A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95E8E810F98C4386EB584FD2 /* Pods-Square.debug.xcconfig */,
-				B365ED65503C051D98DBDA1F /* Pods-Square.release.xcconfig */,
+				060A9E3E2BD57E62D9A7ECBC /* Pods-Squarance.debug.xcconfig */,
+				F2DE8B01BF22885B52A88847 /* Pods-Squarance.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -483,6 +487,8 @@
 				C34212EA1D5EF8D20031838D /* FollowerViewController.swift */,
 				C347AB111D5F948400DC51DD /* HomeTabBarViewController.swift */,
 				C39B18FC1D6301C1004C7376 /* SquareViewController.swift */,
+				C3D6132D1D76AE370065BC0E /* CreateWorkFormViewController.swift */,
+				C3D6132F1D76CC640065BC0E /* CreateWorkSelectPhotoViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -590,7 +596,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Square/Pods-Square-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Squarance/Pods-Squarance-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		83D39E36C7AD18DDBE782FB5 /* [CP] Embed Pods Frameworks */ = {
@@ -605,7 +611,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Square/Pods-Square-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Squarance/Pods-Squarance-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9CC6ED6485FCA7F9788B6CDE /* [CP] Check Pods Manifest.lock */ = {
@@ -654,6 +660,7 @@
 				C3E7E41F1D5C5A6600B94ABA /* ProfileEditViewController.swift in Sources */,
 				C3C340A31D5F467E00F311FC /* FolllowerTableViewCell.swift in Sources */,
 				C3AB47821D5CE24500478CF5 /* DemoPhotoMessageModel.swift in Sources */,
+				C3D6132E1D76AE370065BC0E /* CreateWorkFormViewController.swift in Sources */,
 				C39F29D41D57825D00D832FB /* NotificationDelegate.swift in Sources */,
 				C3AB477A1D5CE23800478CF5 /* DemoTextMessageHandler.swift in Sources */,
 				C34384DE1D5D74B400248A33 /* SendingStatusCollectionViewCell.swift in Sources */,
@@ -685,6 +692,7 @@
 				C3CAF8581D5648BE00A334D0 /* WorksOnHomeView.swift in Sources */,
 				C3AB47751D5CE12900478CF5 /* BaseMessageCollectionViewCellAvatarStyle.swift in Sources */,
 				C34384ED1D5D8CF300248A33 /* StackProfileCollectionViewCell.swift in Sources */,
+				C3D613301D76CC640065BC0E /* CreateWorkSelectPhotoViewController.swift in Sources */,
 				C39F29C31D571E7F00D832FB /* LoginViewController.swift in Sources */,
 				C39F29BC1D56F64400D832FB /* CollectionViewController.swift in Sources */,
 				C34384E71D5D75E600248A33 /* TimeSeparatorPresenter.swift in Sources */,
@@ -800,12 +808,13 @@
 		};
 		C31F6DF61D56377700CEABEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95E8E810F98C4386EB584FD2 /* Pods-Square.debug.xcconfig */;
+			baseConfigurationReference = 060A9E3E2BD57E62D9A7ECBC /* Pods-Squarance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				INFOPLIST_FILE = Square/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.squarance;
 				PRODUCT_NAME = Squarance;
@@ -816,12 +825,13 @@
 		};
 		C31F6DF71D56377700CEABEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B365ED65503C051D98DBDA1F /* Pods-Square.release.xcconfig */;
+			baseConfigurationReference = F2DE8B01BF22885B52A88847 /* Pods-Squarance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
 				INFOPLIST_FILE = Square/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarance.squarance;
 				PRODUCT_NAME = Squarance;

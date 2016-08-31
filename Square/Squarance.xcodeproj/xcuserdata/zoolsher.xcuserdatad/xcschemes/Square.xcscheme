@@ -33,16 +33,16 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C31F6DDF1D56377700CEABEA"
-            BuildableName = "Square.app"
-            BlueprintName = "Square"
-            ReferencedContainer = "container:Square.xcodeproj">
+            BuildableName = "Squarance.app"
+            BlueprintName = "Squarance"
+            ReferencedContainer = "container:Squarance.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C31F6DDF1D56377700CEABEA"
-            BuildableName = "Square.app"
-            BlueprintName = "Square"
-            ReferencedContainer = "container:Square.xcodeproj">
+            BuildableName = "Squarance.app"
+            BlueprintName = "Squarance"
+            ReferencedContainer = "container:Squarance.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

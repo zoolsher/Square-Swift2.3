@@ -1,7 +1,7 @@
 platform :ios, '9.0'
-project './Square/Square.xcodeproj'
+project './Square/Squarance.xcodeproj'
 use_frameworks!
-target 'Square' do
+target 'Squarance' do
 	pod 'IQKeyboardManager'
 	pod 'SwiftyJSON'
 	pod 'Alamofire'

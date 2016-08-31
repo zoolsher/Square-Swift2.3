@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '26E16D0B3E6E9F80EE3651CCBE7E0756'
+               BlueprintIdentifier = '8DC741AF0BB0FB73D8A05DB2E6B97AEB'
                BlueprintName = 'SABlurImageView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SABlurImageView.framework'>
