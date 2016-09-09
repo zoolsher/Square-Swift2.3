@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyPeasy
 
 class SegmentControlView: UIView {
     
@@ -21,6 +22,8 @@ class SegmentControlView: UIView {
     @IBOutlet weak var label3: UILabel!
     
     @IBOutlet weak var constainsForTapView: NSLayoutConstraint!
+    
+    @IBOutlet weak var centerXConstrainForTapView: NSLayoutConstraint!
     
     weak var view:UIView!;
     
@@ -52,17 +55,16 @@ class SegmentControlView: UIView {
         for i in 0..<labelArr.count {
             let tempGR = UITapGestureRecognizer(target: self, action: #selector(dispatchAction))
             labelArr[i].addGestureRecognizer(tempGR)
-            //labelArr[i].isUserInteractionEnabled = true
             labelArr[i].userInteractionEnabled = true
             tGR.append(tempGR)
         }
+        
         
         
     }
     
     func dispatchAction(sender:UITapGestureRecognizer){
         if let index = tGR.indexOf(sender){
-        //if let index = tGR.index(of: sender){
             animation(index)
             if let action = self.labelAction{
                 action(curIndex,index)
@@ -71,7 +73,11 @@ class SegmentControlView: UIView {
         }
     }
     
+    var _lastCons : NSLayoutConstraint? = nil
     func animation(index : Int){
+        if _lastCons==nil {
+            _lastCons = centerXConstrainForTapView
+        }
         if(index == curIndex){
             return
         }else{
@@ -80,36 +86,24 @@ class SegmentControlView: UIView {
                                        usingSpringWithDamping: 0.5,
                                        initialSpringVelocity: 15.0,
                                        options: UIViewAnimationOptions.CurveEaseInOut,
-                                       animations: { 
-//                                        let tempLabel = self.labelArr[self.curIndex];
-//                                        tempLabel.textColor = UIColor.whiteColor()
+                                       animations: {
                                         for label in self.labelArr {
                                             label.textColor = UIColor(red:0.37, green:0.37, blue:0.37, alpha:1.00)
                                         }
                                         let label = self.labelArr[index];
-                                        let x = label.frame.origin.x;
                                         let width = label.frame.width;
-                                        self.tapView.frame = CGRect(x: x, y: self.tapView.frame.origin.y, width: width, height: self.tapView.frame.height)
-                                        
+                                        if index == 0{
+                                            self.centerXConstrainForTapView.constant = CGFloat(-width)
+                                        }else if(index == 1){
+                                            self.centerXConstrainForTapView.constant = CGFloat(0)
+                                        }else{
+                                            self.centerXConstrainForTapView.constant = CGFloat(width)
+                                        }
+                                        self.layoutIfNeeded()
                                         label.textColor = UIColor(red:0.50, green:0.12, blue:0.13, alpha:1.00)
+
                 },
                                        completion: nil)
-//            UIView.animate(withDuration: 0.5,
-//                           delay: 0.0,
-//                           usingSpringWithDamping: 0.5,
-//                           initialSpringVelocity: 15.0,
-//                           options: UIViewAnimationOptions.curveEaseInOut,
-//                           animations: {
-//                            let tempLabel = self.labelArr[self.curIndex];
-//                            tempLabel.textColor = UIColor.white
-//                            let label = self.labelArr[index];
-//                            let x = label.frame.origin.x;
-//                            let width = label.frame.width;
-//                            self.tapView.frame = CGRect(x: x, y: self.tapView.frame.origin.y, width: width, height: self.tapView.frame.height)
-//                            label.textColor = UIColor.red
-//                },
-//                           completion: nil
-//            )
         }
     }
     
@@ -121,7 +115,6 @@ class SegmentControlView: UIView {
     }
     
     func loadViewFromXib()->UIView{
-//        let bundle = Bundle.main.loadNibNamed("SegmentControlView", owner: self, options: nil);
         let bundle = NSBundle.mainBundle().loadNibNamed("SegmentControlView", owner: self, options: nil);
         let tmpView = bundle?.first as! UIView;
         return tmpView;
@@ -133,7 +126,6 @@ class SegmentControlView: UIView {
         
         view = loadViewFromXib()
         view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth];
-//            [UIViewAutoresizing.flexibleHeight,UIViewAutoresizing.flexibleWidth];
         self.addSubview(view)
         container.frame = self.bounds
         

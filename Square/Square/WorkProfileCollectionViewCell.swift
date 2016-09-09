@@ -17,8 +17,17 @@ class WorkProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     
     func loadData(heart:String,comment:String){
-        self.commentLabel.text = comment
-        self.heartLabel.text = heart
+        let heartAttributedString = NSMutableAttributedString(string: "\u{e639}", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        let commentAttributedString = NSMutableAttributedString(string: "\u{e628}", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        
+        heartAttributedString.appendAttributedString(NSAttributedString(string: heart))
+        commentAttributedString.appendAttributedString(NSAttributedString(string: comment))
+        self.commentLabel.attributedText = commentAttributedString
+        self.heartLabel.attributedText = heartAttributedString
     }
     
     func loadImage(image:UIImage){

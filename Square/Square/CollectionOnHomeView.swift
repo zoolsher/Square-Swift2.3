@@ -14,11 +14,9 @@ class CollectionOnHomeView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var viewAll: UILabel!
     
     @IBOutlet var container: UIView!
     
-    var viewAllAction : (()->Void)? = nil
     weak var view:UIView!;
     /*
     // Only override draw() if you perform custom drawing.
@@ -32,8 +30,6 @@ class CollectionOnHomeView: UIView {
     func loadData(title:String,postedBy:String){
         self.titleLabel.text = title;
         self.postByLabel.text = title;
-        let tGR = UITapGestureRecognizer(target: self, action: #selector(CollectionOnHomeView.dispatch))
-        self.viewAll.addGestureRecognizer(tGR);
     }
     
     func loadImg(img:UIImage){
@@ -45,11 +41,7 @@ class CollectionOnHomeView: UIView {
         let tmpView = bundle?.first as! UIView;
         return tmpView;
     }
-    
-    func dispatch(sender:UITapGestureRecognizer){
-        self.viewAllAction!()
-    }
-    
+
     func setupSubviews(){
         
         view = loadViewFromXib()

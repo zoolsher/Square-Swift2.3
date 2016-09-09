@@ -43,6 +43,7 @@ class LoginViewController: UIViewController,NVActivityIndicatorViewable {
     
     override func viewDidAppear(animated: Bool) {
         self.loadContainerView();
+        
     }
     
     func loadContainerView(){
@@ -209,6 +210,7 @@ class LoginViewController: UIViewController,NVActivityIndicatorViewable {
         loginView.backAction = {
             self.curShow = 0
         }
+        
         
         if let username = NSUserDefaults().valueForKey("username") as? String{
             if let password = NSUserDefaults().valueForKey("password") as? String{

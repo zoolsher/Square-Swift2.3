@@ -23,6 +23,7 @@ class LoginView: UIView {
     var goForwardAction : (()->Void)?;
     
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var goBtn: UIButton!
     @IBAction func forward(sender: UIButton) {
         if let act = goForwardAction{
             act()
@@ -49,6 +50,33 @@ class LoginView: UIView {
         view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth];
         self.addSubview(view)
         container.frame = self.bounds
+        
+        
+        let leftText = NSMutableAttributedString(string: "\u{e637}", attributes:
+            [
+                NSFontAttributeName : UIFont(name: "iconfont", size: 16)!,
+                NSForegroundColorAttributeName: UIColor.whiteColor()
+            ]);
+        let backText = NSMutableAttributedString(string: " back", attributes:
+            [
+                NSFontAttributeName : UIFont(name: "DINCOND-Regular", size:16)!,
+                NSForegroundColorAttributeName: UIColor.whiteColor()
+            ]);
+        leftText.appendAttributedString(backText)
+        backBtn.setAttributedTitle(leftText, forState: UIControlState.Normal)
+        
+        let rightText = NSMutableAttributedString(string: "go", attributes:
+            [
+                NSFontAttributeName : UIFont(name: "DINCOND-Regular", size: 16)!,
+                NSForegroundColorAttributeName: UIColor.whiteColor()
+            ]);
+        let goText = NSMutableAttributedString(string: " \u{e642}", attributes:
+            [
+                NSFontAttributeName : UIFont(name: "iconfont", size:16)!,
+                NSForegroundColorAttributeName: UIColor.whiteColor()
+            ]);
+        rightText.appendAttributedString(goText)
+        goBtn.setAttributedTitle(rightText, forState: UIControlState.Normal)
         
     }
     

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A270f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DINCOND-REGULAR.OTF">
@@ -14,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="_workProfileCollectionViewCell" id="gTV-IL-0wX" customClass="WorkProfileCollectionViewCell" customModule="Square" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="_workProfileCollectionViewCell" id="gTV-IL-0wX" customClass="WorkProfileCollectionViewCell" customModule="Squarance" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="389" height="360"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -27,53 +25,35 @@
                         <rect key="frame" x="0.0" y="330" width="389" height="30"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l28-hG-gDg">
-                                <rect key="frame" x="0.0" y="14" width="253" height="3"/>
+                                <rect key="frame" x="0.0" y="14" width="319" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="vIL-Hg-15e"/>
+                                    <constraint firstAttribute="height" constant="1" id="vIL-Hg-15e"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MU-5f-HPM">
-                                <rect key="frame" x="353" y="5" width="28" height="20"/>
-                                <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                                <rect key="frame" x="358" y="7" width="23" height="16"/>
+                                <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="udh-Bf-zQ5">
-                                <rect key="frame" x="325" y="5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="udh-Bf-zQ5" secondAttribute="height" id="3Jx-2F-6ch"/>
-                                    <constraint firstAttribute="width" constant="20" id="Gmf-UC-hp5"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="hG9-Tn-AZk">
-                                <rect key="frame" x="261" y="5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="hG9-Tn-AZk" secondAttribute="height" id="WvT-Tp-6nO"/>
-                                    <constraint firstAttribute="width" constant="20" id="mht-gi-UT8"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e86-3T-Aqu">
-                                <rect key="frame" x="289" y="5" width="28" height="20"/>
-                                <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
+                                <rect key="frame" x="327" y="7" width="23" height="16"/>
+                                <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="6MU-5f-HPM" firstAttribute="leading" secondItem="udh-Bf-zQ5" secondAttribute="trailing" constant="8" id="1t4-Ha-uZj"/>
-                            <constraint firstItem="hG9-Tn-AZk" firstAttribute="leading" secondItem="l28-hG-gDg" secondAttribute="trailing" constant="8" id="34n-s5-70F"/>
-                            <constraint firstItem="udh-Bf-zQ5" firstAttribute="leading" secondItem="e86-3T-Aqu" secondAttribute="trailing" constant="8" id="DRr-5b-NRl"/>
-                            <constraint firstItem="e86-3T-Aqu" firstAttribute="leading" secondItem="hG9-Tn-AZk" secondAttribute="trailing" constant="8" id="GTz-uW-TkC"/>
+                            <constraint firstItem="6MU-5f-HPM" firstAttribute="leading" secondItem="e86-3T-Aqu" secondAttribute="trailing" constant="8" symbolic="YES" id="LZi-V5-iwL"/>
                             <constraint firstItem="l28-hG-gDg" firstAttribute="leading" secondItem="zmj-LO-qKZ" secondAttribute="leading" id="Rig-9P-lua"/>
-                            <constraint firstItem="6MU-5f-HPM" firstAttribute="centerY" secondItem="udh-Bf-zQ5" secondAttribute="centerY" id="Zr6-Jt-0Tb"/>
-                            <constraint firstItem="hG9-Tn-AZk" firstAttribute="centerY" secondItem="l28-hG-gDg" secondAttribute="centerY" id="cXD-Le-viH"/>
-                            <constraint firstItem="e86-3T-Aqu" firstAttribute="centerY" secondItem="hG9-Tn-AZk" secondAttribute="centerY" id="jep-rI-Jd6"/>
+                            <constraint firstItem="e86-3T-Aqu" firstAttribute="centerY" secondItem="l28-hG-gDg" secondAttribute="centerY" id="Tu9-Em-hyD"/>
+                            <constraint firstItem="e86-3T-Aqu" firstAttribute="leading" secondItem="l28-hG-gDg" secondAttribute="trailing" constant="8" symbolic="YES" id="Ugh-Wu-LmE"/>
+                            <constraint firstItem="6MU-5f-HPM" firstAttribute="centerY" secondItem="l28-hG-gDg" secondAttribute="centerY" id="eBO-pa-Cly"/>
                             <constraint firstAttribute="height" constant="30" id="jkL-oN-gKn"/>
                             <constraint firstItem="l28-hG-gDg" firstAttribute="centerY" secondItem="zmj-LO-qKZ" secondAttribute="centerY" id="r2Y-SF-dwP"/>
                             <constraint firstAttribute="trailing" secondItem="6MU-5f-HPM" secondAttribute="trailing" constant="8" id="rXf-JL-GVG"/>
-                            <constraint firstItem="udh-Bf-zQ5" firstAttribute="centerY" secondItem="e86-3T-Aqu" secondAttribute="centerY" id="s7z-Or-PAF"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -99,7 +79,5 @@
     </objects>
     <resources>
         <image name="LoginBackground" width="1571" height="2787"/>
-        <image name="comment" width="15" height="14"/>
-        <image name="heart" width="15" height="14"/>
     </resources>
 </document>

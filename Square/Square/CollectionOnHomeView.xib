@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DINCOND-REGULAR.OTF">
             <string>DINCond-Regular</string>
             <string>DINCond-Regular</string>
-            <string>DINCond-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionOnHomeView" customModule="Square" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionOnHomeView" customModule="Squarance" customModuleProvider="target">
             <connections>
                 <outlet property="container" destination="iN0-l3-epB" id="QCR-bZ-mSH"/>
                 <outlet property="imageView" destination="i02-A5-Aiv" id="IuH-Vd-jIO"/>
                 <outlet property="postByLabel" destination="Lj3-Qq-fIW" id="OPa-s3-nFx"/>
                 <outlet property="titleLabel" destination="vUA-kD-j9U" id="mc4-pd-fRu"/>
-                <outlet property="viewAll" destination="Ht0-NV-Z5b" id="aGb-85-94v"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="413" height="273"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lj3-Qq-fIW">
-                            <rect key="frame" x="8" y="0.0" width="195" height="20"/>
+                            <rect key="frame" x="8" y="0.0" width="385" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="cq7-Jx-vHI"/>
                             </constraints>
@@ -51,32 +48,22 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All &gt;&gt;    " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht0-NV-Z5b">
-                            <rect key="frame" x="211" y="0.0" width="194" height="20"/>
-                            <fontDescription key="fontDescription" name="DINCond-Regular" family="DINCond-Regular" pointSize="17"/>
-                            <color key="textColor" red="0.57593494653701782" green="0.17863166332244873" blue="0.17693987488746643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.12350963801145554" green="0.12363750487565994" blue="0.12352944165468216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="centerX" secondItem="i02-A5-Aiv" secondAttribute="centerX" id="4bn-Jk-EMN"/>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="centerX" secondItem="av1-KB-kOw" secondAttribute="centerX" id="524-eA-cQ6"/>
                         <constraint firstAttribute="bottom" secondItem="i02-A5-Aiv" secondAttribute="bottom" id="5Mt-mf-6Lo"/>
-                        <constraint firstAttribute="trailing" secondItem="Ht0-NV-Z5b" secondAttribute="trailing" constant="8" id="6Jf-w1-PXl"/>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="leading" secondItem="av1-KB-kOw" secondAttribute="leading" constant="8" id="81G-VU-gpl"/>
                         <constraint firstItem="i02-A5-Aiv" firstAttribute="centerX" secondItem="av1-KB-kOw" secondAttribute="centerX" id="91G-Fx-2h3"/>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="width" secondItem="av1-KB-kOw" secondAttribute="width" id="MW5-zM-DbX"/>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="top" secondItem="i02-A5-Aiv" secondAttribute="bottom" constant="-45" id="N5e-GZ-2L2"/>
                         <constraint firstAttribute="bottom" secondItem="vUA-kD-j9U" secondAttribute="bottom" id="Nlv-BS-yg5"/>
                         <constraint firstItem="i02-A5-Aiv" firstAttribute="top" secondItem="av1-KB-kOw" secondAttribute="top" constant="20" id="T7a-21-ZiB"/>
-                        <constraint firstItem="Lj3-Qq-fIW" firstAttribute="width" secondItem="Ht0-NV-Z5b" secondAttribute="width" id="U6k-P7-JZq"/>
                         <constraint firstAttribute="trailing" secondItem="i02-A5-Aiv" secondAttribute="trailing" constant="8" id="XXN-67-INQ"/>
-                        <constraint firstItem="Ht0-NV-Z5b" firstAttribute="leading" secondItem="Lj3-Qq-fIW" secondAttribute="trailing" constant="8" symbolic="YES" id="YC7-Ar-V63"/>
-                        <constraint firstItem="Ht0-NV-Z5b" firstAttribute="top" secondItem="av1-KB-kOw" secondAttribute="top" id="You-7H-Jqq"/>
-                        <constraint firstItem="Lj3-Qq-fIW" firstAttribute="height" secondItem="Ht0-NV-Z5b" secondAttribute="height" id="ZhW-O7-IA0"/>
                         <constraint firstItem="Lj3-Qq-fIW" firstAttribute="leading" secondItem="av1-KB-kOw" secondAttribute="leading" constant="8" id="aEq-hJ-p3r"/>
                         <constraint firstItem="vUA-kD-j9U" firstAttribute="width" secondItem="i02-A5-Aiv" secondAttribute="width" id="age-nU-SfQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Lj3-Qq-fIW" secondAttribute="trailing" constant="20" symbolic="YES" id="iff-zL-eYs"/>
                         <constraint firstItem="Lj3-Qq-fIW" firstAttribute="top" secondItem="av1-KB-kOw" secondAttribute="top" id="lE6-WE-7AF"/>
                         <constraint firstItem="i02-A5-Aiv" firstAttribute="width" secondItem="av1-KB-kOw" secondAttribute="width" id="mzS-Sd-cWX"/>
                         <constraint firstAttribute="trailing" secondItem="vUA-kD-j9U" secondAttribute="trailing" constant="8" id="reo-Va-pgZ"/>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -13,9 +12,10 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SegmentControlView" customModule="Square" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SegmentControlView" customModule="Squarance" customModuleProvider="target">
             <connections>
-                <outlet property="constainsForTapView" destination="6Oe-Hk-hG3" id="K62-3S-D1u"/>
+                <outlet property="centerXConstrainForTapView" destination="yNX-Zq-fq8" id="xO3-w9-FmP"/>
+                <outlet property="constainsForTapView" destination="yNX-Zq-fq8" id="eyA-PS-zvM"/>
                 <outlet property="container" destination="iN0-l3-epB" id="gYI-Qw-nhT"/>
                 <outlet property="label1" destination="F5P-Y9-uVl" id="sjo-eP-7r2"/>
                 <outlet property="label2" destination="mWt-Pw-MgS" id="l2z-5S-7da"/>
@@ -67,7 +67,6 @@
                         <constraint firstItem="wwm-ap-Yhh" firstAttribute="centerX" secondItem="z9B-1z-RgV" secondAttribute="centerX" id="3ee-sO-9Pl"/>
                         <constraint firstItem="mWt-Pw-MgS" firstAttribute="centerY" secondItem="z9B-1z-RgV" secondAttribute="centerY" id="5Aq-zM-jk8"/>
                         <constraint firstItem="mWt-Pw-MgS" firstAttribute="width" secondItem="F5P-Y9-uVl" secondAttribute="width" id="5hL-nz-4jJ"/>
-                        <constraint firstItem="qE9-yV-ztL" firstAttribute="centerX" secondItem="wwm-ap-Yhh" secondAttribute="centerX" id="6Oe-Hk-hG3"/>
                         <constraint firstItem="wQX-6t-X1k" firstAttribute="height" secondItem="mWt-Pw-MgS" secondAttribute="height" id="6dS-Sh-Ppr"/>
                         <constraint firstItem="wQX-6t-X1k" firstAttribute="centerY" secondItem="z9B-1z-RgV" secondAttribute="centerY" id="JRi-Rz-ezx"/>
                         <constraint firstItem="F5P-Y9-uVl" firstAttribute="centerY" secondItem="z9B-1z-RgV" secondAttribute="centerY" id="MY4-hZ-67c"/>
@@ -81,6 +80,7 @@
                         <constraint firstItem="qE9-yV-ztL" firstAttribute="centerY" secondItem="wwm-ap-Yhh" secondAttribute="centerY" id="mC4-0g-w2K"/>
                         <constraint firstItem="wQX-6t-X1k" firstAttribute="width" secondItem="mWt-Pw-MgS" secondAttribute="width" id="qbK-jO-S1M"/>
                         <constraint firstItem="F5P-Y9-uVl" firstAttribute="leading" secondItem="z9B-1z-RgV" secondAttribute="leading" id="qzv-Va-hiC"/>
+                        <constraint firstItem="qE9-yV-ztL" firstAttribute="centerX" secondItem="mWt-Pw-MgS" secondAttribute="centerX" id="yNX-Zq-fq8"/>
                         <constraint firstAttribute="trailing" secondItem="wQX-6t-X1k" secondAttribute="trailing" id="yxV-Gv-xlH"/>
                     </constraints>
                 </view>

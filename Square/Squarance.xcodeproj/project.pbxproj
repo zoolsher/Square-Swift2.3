@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1CEA2E0478E64114E98A94D /* Pods_Squarance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911C491BC8D21AA1501832AA /* Pods_Squarance.framework */; };
+		C31F13CB1D7FF45F00BDBAC6 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C31F13C91D7FF03000BDBAC6 /* iconfont.ttf */; };
 		C31F6DE41D56377700CEABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31F6DE31D56377700CEABEA /* AppDelegate.swift */; };
 		C31F6DE91D56377700CEABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31F6DE71D56377700CEABEA /* Main.storyboard */; };
 		C31F6DEC1D56377700CEABEA /* Square.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C31F6DEA1D56377700CEABEA /* Square.xcdatamodeld */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		060A9E3E2BD57E62D9A7ECBC /* Pods-Squarance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squarance.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Squarance/Pods-Squarance.debug.xcconfig"; sourceTree = "<group>"; };
 		911C491BC8D21AA1501832AA /* Pods_Squarance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squarance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C31F13C91D7FF03000BDBAC6 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		C31F6DE01D56377700CEABEA /* Squarance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squarance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31F6DE31D56377700CEABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C31F6DE81D56377700CEABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				C31F6DE31D56377700CEABEA /* AppDelegate.swift */,
 				C31F6DE71D56377700CEABEA /* Main.storyboard */,
 				C3CAF8491D5639DB00A334D0 /* DINCOND-REGULAR.OTF */,
+				C31F13C91D7FF03000BDBAC6 /* iconfont.ttf */,
 				C31F6DED1D56377700CEABEA /* Assets.xcassets */,
 				C31F6DEF1D56377700CEABEA /* LaunchScreen.storyboard */,
 				C31F6DF21D56377700CEABEA /* Info.plist */,
@@ -563,6 +566,7 @@
 				C31F6DEE1D56377700CEABEA /* Assets.xcassets in Resources */,
 				C3B36BBE1D646ACF0024126E /* CommentFooterLevelOneTableViewCell.xib in Resources */,
 				C31F6DE91D56377700CEABEA /* Main.storyboard in Resources */,
+				C31F13CB1D7FF45F00BDBAC6 /* iconfont.ttf in Resources */,
 				C3CAF85A1D5648D500A334D0 /* WorksOnHomeView.xib in Resources */,
 				C39F29C11D56F70600D832FB /* CollectionTableViewCell.xib in Resources */,
 				C34384EE1D5D8CF300248A33 /* StackProfileCollectionViewCell.xib in Resources */,
@@ -811,8 +815,8 @@
 			baseConfigurationReference = 060A9E3E2BD57E62D9A7ECBC /* Pods-Squarance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -828,8 +832,8 @@
 			baseConfigurationReference = F2DE8B01BF22885B52A88847 /* Pods-Squarance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhuyuan (Wuhan) Architecture Technology LLC (QXPV6MQP3E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Square/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

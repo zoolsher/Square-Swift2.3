@@ -248,6 +248,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         let data = workData[indexPath.row]
         workCell.loadData(data["heart"]!, comment: data["comment"]!)
         workCell.workImageView.af_setImageWithURL(NSURL(string:data["image"]!)!)
+        workCell.backgroundColor = UIColor.blackColor()
         return workCell
     }
     
@@ -316,11 +317,11 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         case 0:
             return CGSize(width: self.view.frame.width ,height: 164);
         case 1:
-            return CGSize(width: (self.view.frame.width/2)-4,height:100)
+            return CGSize(width: (self.view.frame.width/2)-4,height:200)
         case 2:
             fallthrough
         case 3:
-            return CGSize(width: (self.view.frame.width/3)-6,height:100)
+            return CGSize(width: (self.view.frame.width/3)-6,height:200)
         default:
             return CGSize.zero
         }
@@ -351,7 +352,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
         let themeColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.8)
         
         let offsetY = scrollView.contentOffset.y
-        if offsetY >= 0 {
+//        if offsetY >= 0 {
             let height = 164
             let maxOffset = height-64
             
@@ -359,7 +360,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate,UICollect
             progress = min(progress, 1)
             
             self.navigationController?.navigationBar.df_setBackgroundColor(themeColor.colorWithAlphaComponent(progress))
-        }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
