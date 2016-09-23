@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MQ6-pj-zSa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -391,8 +391,11 @@
                         <outlet property="containerView" destination="LAO-Ae-vJz" id="wXg-ZU-XZi"/>
                         <outlet property="goToWorkLabel" destination="Cbu-aG-rx4" id="6Fx-62-r3C"/>
                         <outlet property="imageView1" destination="I2f-BZ-cbD" id="Tfn-fp-eVl"/>
+                        <outlet property="imageView1HeightCons" destination="tq2-Ny-P1T" id="K4e-Hx-b8I"/>
                         <outlet property="imageView2" destination="rMU-S5-YSg" id="gYj-GU-5Sm"/>
+                        <outlet property="imageView2HeightCons" destination="eHh-O1-UEf" id="Oab-oV-a2H"/>
                         <outlet property="imageView3" destination="sH8-Tc-BV6" id="q4z-bi-hOS"/>
+                        <outlet property="imageView3HeightCons" destination="ic1-Od-nRS" id="SyV-sS-xfa"/>
                         <outlet property="segment" destination="t2X-KN-AIC" id="kha-aD-A88"/>
                         <segue destination="5Kl-BE-jsa" kind="show" identifier="GoToWork" id="eQJ-AM-ZUy"/>
                         <segue destination="r6j-KD-XOJ" kind="show" identifier="GoToCollection" id="zyE-jW-UKC"/>

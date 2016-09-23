@@ -26,6 +26,13 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     
     @IBOutlet weak var imageView3: UIImageView!
     
+    @IBOutlet weak var imageView1HeightCons: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageView2HeightCons: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageView3HeightCons: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var goToWorkLabel: UILabel!
     
     @IBOutlet weak var containerView: UIView!
@@ -33,18 +40,22 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     var isFirstTime : Bool = true;
     var curActiveImage = 1;
     
-    //    var scrollViews:[UIScrollView]=[UIScrollView]()
+
     var scrollViews:[UIView]=[UIView]()
     private var imageViewArr:[UIImageView]? = nil;
-    private var imageViewFrameArr:[[CGRect]] = [[CGRect]]();
+//    private var imageViewFrameArr:[[CGRect]] = [[CGRect]]();
+    private var imageViewConsArr:[[CGFloat]] = [[CGFloat]]();
+    private var imageViewConstraintArr : [NSLayoutConstraint] = [NSLayoutConstraint]();
     
     var headShowArr:[String]?;
     var indexData:JSON = nil;
     var imageURLArr:[String] = [String](){
         didSet{
-            self.imageView1.af_setImageWithURL(NSURL(string: imageURLArr[0])!)
-            self.imageView2.af_setImageWithURL(NSURL(string: imageURLArr[1])!)
-            self.imageView3.af_setImageWithURL(NSURL(string: imageURLArr[2])!)
+            if(imageURLArr.count==3){
+                self.imageView1.af_setImageWithURL(NSURL(string: imageURLArr[0] ?? "")!)
+                self.imageView2.af_setImageWithURL(NSURL(string: imageURLArr[1] ?? "")!)
+                self.imageView3.af_setImageWithURL(NSURL(string: imageURLArr[2] ?? "")!)
+            }
         }
     };
     //MARK:
@@ -114,12 +125,6 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
             isFirstTime = false;
             
         }
-        self.imageView1.layoutIfNeeded()
-        self.imageView2.layoutIfNeeded()
-        self.imageView3.layoutIfNeeded()
-        for i in 0...2{
-            self.imageViewArr?[i].frame = self.imageViewFrameArr[curActiveImage][i]
-        }
         
     }
     //MARK:
@@ -158,9 +163,6 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
             let workView = WorksOnHomeView(frame: CGRect(x:frame.size.width*CGFloat(index),y:0,width:frame.size.width,height:frame.size.height))
             workView.loadData(arr[index]["title"]!, postedBy: arr[index]["postedBy"]!)
             workView.imageView.af_setImageWithURL(NSURL(string:arr[index]["image"]!)!)
-            //            fetchImage(NSURL(string:arr[index]["image"]!)!, res: { (img) in
-            //                workView.loadImg(img)
-            //            })
             scrollView.addSubview(workView)
         }
         
@@ -307,51 +309,68 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
         imageViewArr?.append(imageView1)
         imageViewArr?.append(imageView2)
         imageViewArr?.append(imageView3)
+        imageViewConstraintArr.append(imageView1HeightCons)
+        imageViewConstraintArr.append(imageView2HeightCons)
+        imageViewConstraintArr.append(imageView3HeightCons)
         var result = CGFloat(0.0);
         for i in imageViewArr!{
             result += i.frame.height
         }
         let nh = result/5;
         let sh = 3*nh;
-        let w = imageView1.frame.width;
-        let startY = imageView1.frame.origin.y;
-        self.imageViewFrameArr = [
+        let bigCons = sh - result*1/3;
+        let littleCons = nh - result*1/3;
+        self.imageViewConsArr = [
             [
-                CGRect(x: 0, y: startY + 0, width: w, height: sh),
-                CGRect(x: 0, y: startY + sh, width: w, height: nh),
-                CGRect(x: 0, y: startY + sh+nh, width: w, height: nh)
+                bigCons,
+                littleCons,
+                littleCons
             ],
             [
-                CGRect(x: 0, y: startY + 0, width: w, height: nh),
-                CGRect(x: 0, y: startY + nh, width: w, height: sh),
-                CGRect(x: 0, y: startY + sh+nh, width: w, height: nh)
+                littleCons,
+                bigCons,
+                littleCons
             ],
             [
-                CGRect(x: 0, y: startY + 0, width: w, height: nh),
-                CGRect(x: 0, y: startY + nh, width: w, height: nh),
-                CGRect(x: 0, y: startY + 2*nh, width: w, height: sh)
+                littleCons,
+                littleCons,
+                bigCons
             ]
         ]
-        for i in 0...2{
-            self.imageViewArr?[i].frame = self.imageViewFrameArr[1][i]
-        }
+        updateImagePos(1,animated: false)
         return ;
     }
     
-    func updateImagePos(index:Int){
-        self.curActiveImage = index;
-        UIView.animateWithDuration(0.5,
-                                   //        (withDuration: 0.5,
-            delay: 0.0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 15.0,
-            options: UIViewAnimationOptions.CurveEaseInOut,
-            animations: {() -> Void in
-                for i in 0...2{
-                    self.imageViewArr?[i].frame = self.imageViewFrameArr[index][i]
-                }
-            },
-            completion: nil);
+    func updateImagePos(index:Int,animated:Bool = true){
+        if(!animated){
+            self.curActiveImage = index;
+            for i in 0...2 {
+                self.imageViewConstraintArr[i].constant = self.imageViewConsArr[index][i];
+                let view = self.imageViewArr![i]
+                view.alpha = i==index ? 1 : 0.5 ;
+            }
+            self.view.layoutIfNeeded()
+        }else{
+            self.curActiveImage = index;
+            for i in 0...2 {
+                self.imageViewConstraintArr[i].constant = self.imageViewConsArr[index][i];
+            }
+            UIView.animateWithDuration(0.5,
+                delay: 0.0,
+                usingSpringWithDamping: 0.5,
+                initialSpringVelocity: 15.0,
+                options: UIViewAnimationOptions.CurveEaseInOut,
+                animations: {() -> Void in
+                    for i in 0...2{
+                        let view = self.imageViewArr![i]
+                        view.alpha = i==index ? 1 : 0.5 ;
+                    }
+                    self.view.layoutIfNeeded()
+                },
+                completion: nil);
+        }
+        
+        
     }
     
     func queryHomePageData(cb:(NSError?,JSON?)->Void){
@@ -388,7 +407,6 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     }
     
     func activityStart(){
-        
         self.startActivityAnimating(self.view.bounds.size, message: "logining...", type: NVActivityIndicatorType.BallTrianglePath, color: UIColor.whiteColor(), padding: 125)
     }
     
