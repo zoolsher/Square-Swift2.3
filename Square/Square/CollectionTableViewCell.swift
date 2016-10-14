@@ -36,12 +36,25 @@ class CollectionTableViewCell: UITableViewCell {
         self.titleLabel.text = title;
         self.introTextView.text = intro;
         self.categoryLabel.text = category;
-        self.viewLabel.text = view;
-        self.heartLabel.text = heart;
-        self.commentLabel.text = comment;
         
         
         
+        
+        let heartAttributedString = NSMutableAttributedString(string: "\u{e639} ", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        let commentAttributedString = NSMutableAttributedString(string: "\u{e628} ", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        let viewAttributedString = NSMutableAttributedString(string:"\u{e65d} ",attributes: [NSFontAttributeName:UIFont(name:"iconfont",size:14)!]);
+        
+        heartAttributedString.appendAttributedString(NSAttributedString(string: heart))
+        commentAttributedString.appendAttributedString(NSAttributedString(string: comment))
+        viewAttributedString.appendAttributedString(NSAttributedString(string:view));
+        
+        self.viewLabel.attributedText = viewAttributedString
+        self.commentLabel.attributedText = commentAttributedString
+        self.heartLabel.attributedText = heartAttributedString
         
         
     }

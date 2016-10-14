@@ -153,7 +153,7 @@ class WorkBoardViewController: UIViewController,UIScrollViewDelegate,NVActivityI
                         self.presentViewController(alert, animated: true, completion: nil)
                     }else{
                         let json = JSON(data: data!)
-                        print(json[0])
+                        print(json)
                     }
             }
         }

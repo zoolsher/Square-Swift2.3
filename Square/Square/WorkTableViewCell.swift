@@ -58,11 +58,25 @@ class WorkTableViewCell: UITableViewCell {
         
         self.timeLabel.text = time;
         
-        self.commentLabel.text = comment;
         
-        self.viewLabel.text = view;
+        let heartAttributedString = NSMutableAttributedString(string: "\u{e639} ", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        let commentAttributedString = NSMutableAttributedString(string: "\u{e628} ", attributes: [
+            NSFontAttributeName : UIFont(name: "iconfont", size: 14)!
+            ])
+        let viewAttributedString = NSMutableAttributedString(string:"\u{e65d} ",attributes: [NSFontAttributeName:UIFont(name:"iconfont",size:14)!]);
         
-        self.heartLabel.text = heart;
+        heartAttributedString.appendAttributedString(NSAttributedString(string: heart))
+        commentAttributedString.appendAttributedString(NSAttributedString(string: comment))
+        viewAttributedString.appendAttributedString(NSAttributedString(string:view));
+        
+        self.viewLabel.attributedText = viewAttributedString
+        self.commentLabel.attributedText = commentAttributedString
+        self.heartLabel.attributedText = heartAttributedString
+
+        
+        
         
     }
     

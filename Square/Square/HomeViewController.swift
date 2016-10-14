@@ -41,7 +41,7 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     var curActiveImage = 1;
     
 
-    var scrollViews:[UIView]=[UIView]()
+    var scrollViews:[UIView?]=[UIView?]()
     private var imageViewArr:[UIImageView]? = nil;
 //    private var imageViewFrameArr:[[CGRect]] = [[CGRect]]();
     private var imageViewConsArr:[[CGFloat]] = [[CGFloat]]();
@@ -81,7 +81,17 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     }
     func refreshHandler(sender:AnyObject?){
         self.queryHomePageData { (err, json) in
-            print(json)
+            if(err == nil){
+                if let j = json{
+                    if(j["result"].string == "nok"){
+                        let av = UIAlertController(title: "error happens", message: j["reason"].string, preferredStyle: UIAlertControllerStyle.Alert);
+                        av.addAction(UIAlertAction(title:"ok",style: UIAlertActionStyle.Cancel,handler: nil));
+                        self.presentViewController(av, animated: true, completion: nil)
+                    }else{
+                        
+                    }
+                }
+            }
         }
     }
     
@@ -117,7 +127,7 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
                     
                     self.scrollViews.append(self.initContainerViewCollection())
                     
-                    self.view.addSubview(self.scrollViews[1])
+                    self.view.addSubview(self.scrollViews[1]!)
                 }
             })
             
@@ -136,9 +146,12 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
         self.segment.label1.textColor = UIColor(red:0.37, green:0.37, blue:0.37, alpha:1.00)
         self.segment.label3.textColor = UIColor(red:0.37, green:0.37, blue:0.37, alpha:1.00)
         self.segment.labelAction={(lastIndex,index)->Void in
-            print(lastIndex,index)
-            self.scrollViews[lastIndex].removeFromSuperview()
-            self.view.addSubview( self.scrollViews[index] )
+            if let currentView = self.scrollViews[lastIndex] {
+                currentView.removeFromSuperview()
+            }
+            if let desView = self.scrollViews[index]{
+                self.view.addSubview(desView)
+            }
         }
     }
     
@@ -165,11 +178,8 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
             workView.imageView.af_setImageWithURL(NSURL(string:arr[index]["image"]!)!)
             scrollView.addSubview(workView)
         }
-        
         scrollView.contentSize = CGSize(width: frame.size.width*CGFloat(arr.count), height: frame.size.height)
-        
         return scrollView
-        
     }
     
     func initContainerViewCollection()->UIView{
@@ -285,9 +295,6 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
         imageView1.addGestureRecognizer(tapGR1)
         imageView2.addGestureRecognizer(tapGR2)
         imageView3.addGestureRecognizer(tapGR3)
-        
-        
-        
     }
     
     func imageTapHandler(sender:UITapGestureRecognizer){
@@ -374,7 +381,6 @@ class HomeViewController: UIViewController,NVActivityIndicatorViewable {
     }
     
     func queryHomePageData(cb:(NSError?,JSON?)->Void){
-//        Alamofire.Manager.sharedInstance.session.configuration.requestCachePolicy = .ReloadIgnoringLocalCacheData
         Alamofire.request(.GET, BASE.LOC+"/user/getIndexData",parameters:nil,encoding:.JSON)
             .response(completionHandler: { (request, response, data, error) in
                 if (error) != nil {
